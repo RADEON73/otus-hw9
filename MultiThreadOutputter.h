@@ -2,6 +2,7 @@
 #include "ThreadSafeQueue.h"
 #include <mutex>
 #include <string>
+#include <thread> 
 
 class MultiThreadOutputter
 {
