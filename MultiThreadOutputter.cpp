@@ -6,6 +6,7 @@
 #include <iostream>
 #include <filesystem>
 #include <fstream>
+#include <random>
 
 MultiThreadOutputter::~MultiThreadOutputter()
 {
@@ -46,6 +47,9 @@ void MultiThreadOutputter::log_worker() {
 }
 
 void MultiThreadOutputter::file_worker(int id) {
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_int_distribution dis(100000000, 999999999);
 	while (client_count || !file_queue.empty()) {
 		std::pair<std::vector<std::string>, time_t> item;
 		file_queue.wait_and_pop(item);
@@ -56,7 +60,7 @@ void MultiThreadOutputter::file_worker(int id) {
 			std::filesystem::create_directory(logDir);
 		}
 		std::stringstream filename;
-		filename << "bulk" << timestamp << "_threadID_" << id << ".log";
+		filename << "bulk" << timestamp << "_threadID_" << id << "_" << dis(gen) << ".log";
 		std::filesystem::path filePath = logDir / filename.str();
 		std::ofstream file(filePath, std::ios::app);
 		if (!file.is_open()) {
@@ -83,3 +87,4 @@ void MultiThreadOutputter::waitUntilDone() const
 	// Дополнительная проверка на всякий случай
 	std::this_thread::sleep_for(std::chrono::milliseconds(200));
 }
+
