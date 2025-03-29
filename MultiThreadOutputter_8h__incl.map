@@ -1,0 +1,16 @@
+<map id="MultiThreadOutputter.h" name="MultiThreadOutputter.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="234,5,407,31"/>
+<area shape="rect" id="Node000002" href="$ThreadSafeQueue_8h.html" title="Потокобезопасная очередь" alt="" coords="95,79,245,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="298,33,208,75,206,70,295,28"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="259,152,323,177"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="321,32,299,139,294,138,316,31"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="325,79,383,104"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="329,30,345,65,340,67,324,32"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="407,79,471,104"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="341,28,409,69,407,74,338,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,152,68,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="150,106,72,148,69,143,147,102"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="191,102,261,143,259,147,188,106"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="92,152,235,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="172,105,168,139,163,138,166,104"/>
+</map>

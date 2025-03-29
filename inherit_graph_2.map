@@ -1,0 +1,9 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$classICommand.html" title="Интерфейс для всех команд." alt="" coords="5,55,99,80"/>
+<area shape="rect" id="Node000001" href="$classEndBlockCommand.html" title="Команда для завершения текущего динамического блока." alt="" coords="150,5,299,31"/>
+<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="109,48,178,28,180,33,111,53"/>
+<area shape="rect" id="Node000002" href="$classRegularCommand.html" title="Команда для добавления обычной команды в блок." alt="" coords="155,55,294,80"/>
+<area shape="poly" id="edge2_Node000000_Node000002" title=" " alt="" coords="112,65,155,65,155,70,112,70"/>
+<area shape="rect" id="Node000003" href="$classStartBlockCommand.html" title="Команда для начала нового динамического блока." alt="" coords="147,104,303,129"/>
+<area shape="poly" id="edge3_Node000000_Node000003" title=" " alt="" coords="111,81,180,101,178,106,109,86"/>
+</map>

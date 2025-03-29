@@ -1,0 +1,12 @@
+<map id="BulkProcessor.h" name="BulkProcessor.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="59,5,185,31"/>
+<area shape="rect" id="Node000002" href="$BulkProcessor_8cpp.html" title=" " alt="" coords="5,225,145,251"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,41,75,59,59,80,47,105,42,127,43,149,49,177,58,202,70,224,65,226,53,205,43,178,38,150,37,126,42,104,54,77,71,55,90,37"/>
+<area shape="rect" id="Node000003" href="$Commands_8h.html" title=" " alt="" coords="68,79,176,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="125,44,125,79,119,79,119,44"/>
+<area shape="rect" id="Node000005" href="$async_8cpp.html" title="Реализация функций асинхронного интерфейса" alt="" coords="200,79,287,104"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="155,35,225,76,222,81,152,40"/>
+<area shape="rect" id="Node000004" href="$CommandFactory_8h.html" title=" " alt="" coords="58,152,205,177"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="128,117,132,152,127,152,123,118"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="116,190,86,227,82,224,111,187"/>
+</map>
