@@ -1,13 +1,15 @@
 <map id="MultiThreadOutputter.cpp" name="MultiThreadOutputter.cpp">
-<area shape="rect" id="Node000001" title="Реализация класса MultiThreadOutputter." alt="" coords="432,5,620,31"/>
+<area shape="rect" id="Node000001" title="Реализация класса MultiThreadOutputter." alt="" coords="487,5,675,31"/>
 <area shape="rect" id="Node000002" href="$MultiThreadOutputter_8h.html" title=" " alt="" coords="234,79,407,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="494,33,368,77,366,72,492,28"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="540,33,377,78,375,72,538,28"/>
 <area shape="rect" id="Node000009" title=" " alt="" coords="431,79,511,104"/>
-<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="519,33,491,69,486,66,515,29"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="565,33,502,73,499,69,562,28"/>
 <area shape="rect" id="Node000010" title=" " alt="" coords="535,79,626,104"/>
-<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="537,29,566,66,561,69,533,33"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="583,31,583,65,578,65,578,31"/>
 <area shape="rect" id="Node000011" title=" " alt="" coords="651,79,724,104"/>
-<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="553,28,650,71,647,75,551,33"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="599,28,660,69,657,73,596,33"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="749,79,821,104"/>
+<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="614,28,740,72,738,77,613,33"/>
 <area shape="rect" id="Node000003" href="$ThreadSafeQueue_8h.html" title="Потокобезопасная очередь" alt="" coords="95,152,245,177"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="298,106,208,148,206,144,295,102"/>
 <area shape="rect" id="Node000005" title=" " alt="" coords="259,225,323,251"/>
