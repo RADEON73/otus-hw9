@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "print_ip", "index.html", [
+  [ "HW9", "index.html", [
     [ "otus-hw9", "md_README.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
