@@ -6,9 +6,8 @@
 #include "ProcessorManager.h"
 #include <iosfwd>
 #include <exception>
-#include <ostream>
-#include <string_view>
-
+#include <fstream>
+#include <sstream>
 /// Справка
 static void print_help() {
 	std::cout << "Available commands:\n"
