@@ -2,16 +2,16 @@
 #include "BulkProcessor.h"
 
 /**
- * @class ICommand
+ * @class IBulkCommand
  * @brief Интерфейс для всех команд.
  *
- * Интерфейс ICommand определяет метод execute, который должен быть реализован
+ * Интерфейс IBulkCommand определяет метод execute, который должен быть реализован
  * всеми классами команд.
  */
-class ICommand
+class IBulkCommand
 {
 public:
-	virtual ~ICommand() = default;
+	virtual ~IBulkCommand() = default;
 	/**
 	* @brief Выполняет команду.
 	* @param processor Объект BulkProcessor, который будет обрабатывать команду.
@@ -25,7 +25,7 @@ public:
  *
  * Класс StartBlockCommand реализует команду начала нового динамического блока.
  */
-class StartBlockCommand : public ICommand
+class StartBlockCommand : public IBulkCommand
 {
 public:
 	void execute(BulkProcessor& processor) override {
@@ -39,7 +39,7 @@ public:
  *
  * Класс EndBlockCommand реализует команду завершения текущего динамического блока.
  */
-class EndBlockCommand : public ICommand
+class EndBlockCommand : public IBulkCommand
 {
 public:
 	void execute(BulkProcessor& processor) override {
@@ -53,7 +53,7 @@ public:
  *
  * Класс RegularCommand реализует команду добавления обычной команды в текущий блок.
  */
-class RegularCommand : public ICommand
+class RegularCommand : public IBulkCommand
 {
 public:
 	/**

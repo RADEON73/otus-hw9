@@ -1,14 +1,14 @@
 #pragma once
 #include <memory>
-#include "Commands.h"
+#include "BulkCommands.h"
 
 /**
- * @class CommandFactory
+ * @class BulkCommandFactory
  * @brief Фабрика для создания команд.
  *
- * Класс CommandFactory создает объекты команд на основе входной строки.
+ * Класс BulkCommandFactory создает объекты команд на основе входной строки.
  */
-class CommandFactory
+class BulkCommandFactory
 {
 public:
 	/**
@@ -16,7 +16,7 @@ public:
  * @param command Входная строка команды.
  * @return Указатель на созданную команду.
  */
-	static std::unique_ptr<ICommand> create(const std::string& command) {
+	static std::unique_ptr<IBulkCommand> create(const std::string& command) {
 		if (command == "{") {
 			return std::make_unique<StartBlockCommand>();
 		}

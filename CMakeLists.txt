@@ -6,14 +6,16 @@ project(async VERSION 1.0.0)
 
 add_executable(main 
 main.cpp
+ProcessorCommands.h
+ProcessorManager.h
 )
 
 add_library(async SHARED
 async.cpp async.h
 BulkProcessor.cpp BulkProcessor.h
 MultiThreadOutputter.cpp MultiThreadOutputter.h
-Commands.h
-CommandFactory.h
+BulkCommands.h
+BulkCommandFactory.h
 ThreadSafeQueue.h
 )
 
@@ -42,6 +44,16 @@ install(TARGETS async
 	LIBRARY DESTINATION lib
     PUBLIC_HEADER DESTINATION async
 )
+
+if (DEFINED ENV{USE_VCPKG_TOOLCHAIN}) # Небольшая автоматизация для себя в итоговый код не попадает
+add_custom_command(
+    TARGET async POST_BUILD  
+    COMMAND ${CMAKE_COMMAND} -E copy
+        ${CMAKE_CURRENT_SOURCE_DIR}/test_data.txt
+        ${CMAKE_BINARY_DIR}/test_data.txt
+    COMMENT "Копирование test_data.txt в каталог программы"
+)
+endif()
 
 install(TARGETS async RUNTIME DESTINATION bin)
 set(CPACK_GENERATOR DEB)

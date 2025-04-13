@@ -1,0 +1,8 @@
+connect 3
+connect 3
+receive 1 stat1\nstat2\nstat3\n
+receive 2 cmd1\ncmd2\n{\ncmd3\ncmd4\n}\n
+receive 1 stat4\nstat5\n
+receive 2 {\ncmd5\ncmd6\n{\ncmd7\ncmd8\n}\ncmd9\n}\n{\ncmd10\ncmd11\n
+disconnect 1
+disconnect 2

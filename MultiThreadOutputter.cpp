@@ -7,15 +7,13 @@
 #include <filesystem>
 #include <fstream>
 #include <random>
+#include <chrono>
+#include <thread>
+#include <stop_token>
 
 MultiThreadOutputter::~MultiThreadOutputter()
 {
-	if (log_thread.joinable())
-		log_thread.join();
-	if (file_thread1.joinable())
-		file_thread1.join();
-	if (file_thread2.joinable())
-		file_thread2.join();
+	stop_source_.request_stop(); // Посылаем сигнал остановки
 }
 
 MultiThreadOutputter& MultiThreadOutputter::getInstance() {
@@ -23,68 +21,100 @@ MultiThreadOutputter& MultiThreadOutputter::getInstance() {
 	return instance;
 }
 
-MultiThreadOutputter::MultiThreadOutputter()
+void MultiThreadOutputter::request_stop()
 {
-	log_thread = std::jthread([this] { this->log_worker(); });
-	file_thread1 = std::jthread([this] { this->file_worker(1); });
-	file_thread2 = std::jthread([this] { this->file_worker(2); });
-}
-
-void MultiThreadOutputter::log_worker() {
-	while (client_count || !log_queue.empty()) {
-		std::pair<std::vector<std::string>, time_t> item;
-		log_queue.wait_and_pop(item);
-		auto& [commands, timestamp] = item;
-
-		std::cout << "bulk: ";
-		for (size_t i = 0; i < commands.size(); ++i) {
-			std::cout << commands[i];
-			if (i < commands.size() - 1)
-				std::cout << ", ";
+	if (!stop_source_.stop_requested()) {
+		stop_source_.request_stop();
+		// Ожидаем завершения с таймаутом
+		auto start = std::chrono::steady_clock::now();
+		while (!log_queue.empty() || !file_queue.empty()) {
+			if (std::chrono::steady_clock::now() - start > std::chrono::seconds(5)) {
+				std::cerr << "Warning: Force stopping with pending items\n";
+				break;
+			}
+			std::this_thread::sleep_for(std::chrono::milliseconds(10));
 		}
-		std::cout << std::endl;
 	}
 }
 
-void MultiThreadOutputter::file_worker(int id) {
+MultiThreadOutputter::MultiThreadOutputter() :
+	log_thread(&MultiThreadOutputter::log_worker, this, stop_source_.get_token()),
+	file_thread1(&MultiThreadOutputter::file_worker, this, 1, stop_source_.get_token()),
+	file_thread2(&MultiThreadOutputter::file_worker, this, 2, stop_source_.get_token())
+{
+}
+
+void MultiThreadOutputter::log_worker(std::stop_token stoken) {
+	ITEM item;
+	while (!stoken.stop_requested()) {
+		if (log_queue.try_pop(item))
+			process_log_item(item);
+		else
+			std::this_thread::sleep_for(std::chrono::milliseconds(10)); // Опционально: снижаем нагрузку на CPU
+	}
+	while (log_queue.try_pop(item))
+		process_log_item(item);
+}
+
+void MultiThreadOutputter::process_log_item(const ITEM& item) const
+{
+	auto& [commands, timestamp] = item;
+
+	std::cout << "bulk: ";
+	for (size_t i = 0; i < commands.size(); ++i) {
+		std::cout << commands[i];
+		if (i < commands.size() - 1)
+			std::cout << ", ";
+	}
+	std::cout << std::endl;
+}
+
+void MultiThreadOutputter::process_file_item(int id, const ITEM& item, std::mt19937& gen, std::uniform_int_distribution<>& dis) const
+{
+	auto& [commands, timestamp] = item;
+
+	std::filesystem::path logDir = "LOG";
+	if (!std::filesystem::exists(logDir)) {
+		std::filesystem::create_directory(logDir);
+	}
+	std::stringstream filename;
+	filename << "bulk" << timestamp << "_threadID_" << id << "_" << dis(gen) << ".log";
+	std::filesystem::path filePath = logDir / filename.str();
+	std::ofstream file;
+	file.rdbuf()->pubsetbuf(nullptr, 0); // Отключаем буферизацию
+	file.open(filePath, std::ios::app);
+	if (!file.is_open()) {
+		std::cerr << "Error opening file: " << filePath << std::endl;
+		return;
+	}
+	file << "bulk: ";
+	for (size_t i = 0; i < commands.size(); ++i) {
+		file << commands[i];
+		if (i < commands.size() - 1)
+			file << ", ";
+	}
+	file << std::endl;
+}
+
+void MultiThreadOutputter::file_worker(int id, std::stop_token stoken) {
 	std::random_device rd;
 	std::mt19937 gen(rd());
 	std::uniform_int_distribution dis(100000000, 999999999);
-	while (client_count || !file_queue.empty()) {
-		std::pair<std::vector<std::string>, time_t> item;
-		file_queue.wait_and_pop(item);
-		auto& [commands, timestamp] = item;
+	ITEM item;
+	while (!stoken.stop_requested()) {
 
-		std::filesystem::path logDir = "LOG";
-		if (!std::filesystem::exists(logDir)) {
-			std::filesystem::create_directory(logDir);
+		if (file_queue.try_pop(item)) {
+			process_file_item(id, item, gen, dis);
 		}
-		std::stringstream filename;
-		filename << "bulk" << timestamp << "_threadID_" << id << "_" << dis(gen) << ".log";
-		std::filesystem::path filePath = logDir / filename.str();
-		std::ofstream file(filePath, std::ios::app);
-		if (!file.is_open()) {
-			std::cerr << "Error opening file: " << filePath << std::endl;
-			return;
+		else if (log_queue.size() > 100) { // Балансировка нагрузки: если log_queue переполнен, то помогаем с обработкой
+			if (log_queue.try_pop(item))  
+				process_log_item(item);
 		}
-		file << "bulk: ";
-		for (size_t i = 0; i < commands.size(); ++i) {
-			file << commands[i];
-			if (i < commands.size() - 1)
-				file << ", ";
-		}
-		file << std::endl;
-	}
-}
-
-void MultiThreadOutputter::waitUntilDone() const
-{
-	// Ждем, пока все очереди не опустеют и все клиенты не отключатся
-	while (client_count > 0 || !log_queue.empty() || !file_queue.empty()) {
-		std::this_thread::sleep_for(std::chrono::milliseconds(100));
+		else
+			std::this_thread::yield();
 	}
 
-	// Дополнительная проверка на всякий случай
-	std::this_thread::sleep_for(std::chrono::milliseconds(200));
+	while (file_queue.try_pop(item)) {
+		process_file_item(id, item, gen, dis);
+	}
 }
-

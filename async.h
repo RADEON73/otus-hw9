@@ -7,7 +7,6 @@
 #include <cstddef>
 
 namespace async {
-
 	/**
 	* @brief Указатель на процессор команд
 	*/

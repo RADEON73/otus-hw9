@@ -2,30 +2,26 @@
 #include "ThreadSafeQueue.h"
 #include <mutex>
 #include <string>
-#include <thread> 
+#include <thread>
+#include <stop_token>
+#include <random>
 
 class MultiThreadOutputter
 {
+	using ITEM = std::pair<std::vector<std::string>, time_t>;
+
 public:
 	MultiThreadOutputter(const MultiThreadOutputter&) = delete;
 	MultiThreadOutputter& operator=(const MultiThreadOutputter&) = delete;
 
 	~MultiThreadOutputter();
 
-	/**
-	* @brief Ожидает завершения работы потоков
-	*
-	* Не дает завершить приложение до тех пор, пока очереди не опустеют, а потоки не завершатся
-	*/
-	void waitUntilDone() const;
-
 	static MultiThreadOutputter& getInstance();
 
-	ThreadSafeQueue<std::pair<std::vector<std::string>, time_t>> log_queue; ///< Очередь логирования
-	ThreadSafeQueue<std::pair<std::vector<std::string>, time_t>> file_queue; ///< Очередь записи в файл
+	void request_stop();
 
-	std::atomic<int> client_count; ///< Количество клиентов (лоя подсчета завершения процесса)
-	std::atomic<bool> running{ true };  ///< Флаг для контроля работы потоков
+	ThreadSafeQueue<ITEM> log_queue; ///< Очередь логирования
+	ThreadSafeQueue<ITEM> file_queue; ///< Очередь записи в файл
 
 private:
 	MultiThreadOutputter();
@@ -33,13 +29,14 @@ private:
 	std::jthread log_thread; ///< Поток логирования
 	std::jthread file_thread1; ///< Поток записи в файл 1
 	std::jthread file_thread2; ///< Поток записи в файл 2
+	std::stop_source stop_source_; // Источник сигнала остановки
 
 	/**
 	* @brief Рабочая функция потока логирования
 	*
 	* Обрабатывает команды из очереди и выводит их в консоль
 	*/
-	void log_worker();
+	void log_worker(std::stop_token stoken);
 
 	/**
 	* @brief Рабочая функция потока записи в файл
@@ -47,5 +44,8 @@ private:
 	*
 	* Обрабатывает команды из очереди и записывает их в файл
 	*/
-	void file_worker(int id);
+	void file_worker(int id, std::stop_token stoken);
+
+	void process_log_item(const ITEM& item) const;
+	void process_file_item(int id, const ITEM& item, std::mt19937& gen, std::uniform_int_distribution<>& dis) const;
 };

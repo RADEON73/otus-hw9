@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <atomic>
+#include <mutex>
 
 /**
  * @class BulkProcessor
@@ -81,4 +82,5 @@ private:
 
 	size_t block_size_; ///< Размер блока команд.
 	Block current_block_; ///< Текущий блок команд.
+	mutable std::mutex mutex_;
 };

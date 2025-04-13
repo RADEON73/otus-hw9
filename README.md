@@ -1,5 +1,16 @@
 # otus-hw9
 9. Многопоточная асинхронная обработка команд
+
+	Возможен запуск с путем к файлу либо без аргументов в интерактивном режиме.
+	При запуске с путем к файлу нужен один аргумент - путь к файлу, будет парсить файл. В интерактивном режиме покажет список команд  или help.
+	Available commands:
+		connect <BS>          - Create new processor with bulk size BS\n"
+		receive <PID> <DATA>  - Send DATA to processor PID\n"
+		disconnect <PID>      - Disconnect processor PID\n"
+		list                  - List active processors\n"
+		help                  - Show this help\n"
+		exit                  - Exit program\n";
+
 Обобщаем код из задания про пакетную обработку команд, обеспечивая
 
 многопоточную обработку;

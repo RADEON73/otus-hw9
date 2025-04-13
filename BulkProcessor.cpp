@@ -1,22 +1,20 @@
 #include "BulkProcessor.h"
-#include "CommandFactory.h"
+#include "BulkCommandFactory.h"
 #include <chrono>
 #include <string>
 #include "MultiThreadOutputter.h"
+#include <iostream>
 
 BulkProcessor::BulkProcessor(size_t block_size) : block_size_(block_size)
 {
-	MultiThreadOutputter::getInstance().client_count++;
 }
 
 BulkProcessor::~BulkProcessor()
 {
-	MultiThreadOutputter::getInstance().client_count--;
-	if (MultiThreadOutputter::getInstance().client_count <= 0)
-		MultiThreadOutputter::getInstance().waitUntilDone();
 }
 
 void BulkProcessor::startBlock() {
+	std::lock_guard lock(mutex_);
 	if (current_block_.depth == 0)
 		flush();
 	++current_block_.depth;
@@ -24,6 +22,7 @@ void BulkProcessor::startBlock() {
 }
 
 void BulkProcessor::endBlock() {
+	std::lock_guard lock(mutex_);
 	if (current_block_.depth > 0) {
 		--current_block_.depth;
 		if (current_block_.depth == 0)
@@ -32,6 +31,7 @@ void BulkProcessor::endBlock() {
 }
 
 void BulkProcessor::addCommand(const std::string& command) {
+	std::lock_guard lock(mutex_);
 	if (current_block_.data.empty())
 		current_block_.createTimeStamp = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
 	current_block_.data.push_back(command);
@@ -58,7 +58,7 @@ void BulkProcessor::parse(const std::string_view& input)
 }
 
 void BulkProcessor::process(const std::string& command) {
-	auto cmd = CommandFactory::create(command);
+	auto cmd = BulkCommandFactory::create(command);
 	cmd->execute(*this);
 }
 
@@ -71,7 +71,8 @@ void BulkProcessor::finalize() {
 
 void BulkProcessor::Block::reset()
 {
-	data.clear();
+	//data.clear();
+	std::vector<std::string>().swap(data); // Освобождаем память
 	is_dynamic = false;
 	depth = 0;
 	createTimeStamp = 0;
@@ -79,9 +80,14 @@ void BulkProcessor::Block::reset()
 
 void BulkProcessor::flush() {
 	if (!current_block_.data.empty()) {
+		try {
 		auto& outputter = MultiThreadOutputter::getInstance();
 		outputter.log_queue.push({ current_block_.data, current_block_.createTimeStamp });
 		outputter.file_queue.push({ current_block_.data, current_block_.createTimeStamp });
+		}
+		catch (const std::exception& e) {
+			std::cerr << "Failed to flush block: " << e.what() << std::endl;
+		}
 		current_block_.reset();
 	}
 }
