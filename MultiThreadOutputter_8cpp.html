@@ -106,35 +106,45 @@ $(document).ready(function(){initNavTree('MultiThreadOutputter_8cpp.html',''); i
 <code>#include &lt;filesystem&gt;</code><br />
 <code>#include &lt;fstream&gt;</code><br />
 <code>#include &lt;random&gt;</code><br />
+<code>#include &lt;chrono&gt;</code><br />
+<code>#include &lt;thread&gt;</code><br />
+<code>#include &lt;stop_token&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for MultiThreadOutputter.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="MultiThreadOutputter_8cpp__incl.png" border="0" usemap="#aMultiThreadOutputter_8cpp" alt=""/></div>
 <map name="aMultiThreadOutputter_8cpp" id="aMultiThreadOutputter_8cpp">
-<area shape="rect" title="Реализация класса MultiThreadOutputter." alt="" coords="487,5,675,31"/>
-<area shape="rect" href="MultiThreadOutputter_8h.html" title=" " alt="" coords="234,79,407,104"/>
-<area shape="poly" title=" " alt="" coords="540,33,377,78,375,72,538,28"/>
-<area shape="rect" title=" " alt="" coords="431,79,511,104"/>
-<area shape="poly" title=" " alt="" coords="565,33,502,73,499,69,562,28"/>
-<area shape="rect" title=" " alt="" coords="535,79,626,104"/>
-<area shape="poly" title=" " alt="" coords="583,31,583,65,578,65,578,31"/>
-<area shape="rect" title=" " alt="" coords="651,79,724,104"/>
-<area shape="poly" title=" " alt="" coords="599,28,660,69,657,73,596,33"/>
-<area shape="rect" title=" " alt="" coords="749,79,821,104"/>
-<area shape="poly" title=" " alt="" coords="614,28,740,72,738,77,613,33"/>
-<area shape="rect" href="ThreadSafeQueue_8h.html" title="Потокобезопасная очередь" alt="" coords="95,152,245,177"/>
-<area shape="poly" title=" " alt="" coords="298,106,208,148,206,144,295,102"/>
-<area shape="rect" title=" " alt="" coords="259,225,323,251"/>
-<area shape="poly" title=" " alt="" coords="321,105,299,212,294,211,316,104"/>
-<area shape="rect" title=" " alt="" coords="325,152,383,177"/>
-<area shape="poly" title=" " alt="" coords="329,103,345,139,340,141,324,105"/>
-<area shape="rect" title=" " alt="" coords="407,152,471,177"/>
-<area shape="poly" title=" " alt="" coords="341,102,409,142,407,147,338,106"/>
-<area shape="rect" title=" " alt="" coords="5,225,68,251"/>
-<area shape="poly" title=" " alt="" coords="150,180,72,221,69,216,147,175"/>
-<area shape="poly" title=" " alt="" coords="191,175,261,216,259,221,188,180"/>
-<area shape="rect" title=" " alt="" coords="92,225,235,251"/>
-<area shape="poly" title=" " alt="" coords="172,178,168,212,163,212,166,177"/>
+<area shape="rect" title="Реализация класса MultiThreadOutputter." alt="" coords="560,5,748,31"/>
+<area shape="rect" href="MultiThreadOutputter_8h.html" title=" " alt="" coords="303,79,477,104"/>
+<area shape="poly" title=" " alt="" coords="612,33,447,78,445,72,611,28"/>
+<area shape="rect" title=" " alt="" coords="430,152,494,177"/>
+<area shape="poly" title=" " alt="" coords="640,33,490,146,487,141,637,29"/>
+<area shape="rect" title=" " alt="" coords="518,152,611,177"/>
+<area shape="poly" title=" " alt="" coords="649,33,581,142,577,139,644,30"/>
+<area shape="rect" title=" " alt="" coords="635,152,707,177"/>
+<area shape="poly" title=" " alt="" coords="652,32,643,64,641,84,643,103,659,139,654,141,638,105,636,84,638,64,647,30"/>
+<area shape="rect" title=" " alt="" coords="653,79,733,104"/>
+<area shape="poly" title=" " alt="" coords="663,30,682,65,678,68,658,32"/>
+<area shape="rect" title=" " alt="" coords="757,79,847,104"/>
+<area shape="poly" title=" " alt="" coords="679,28,767,70,764,75,677,33"/>
+<area shape="rect" title=" " alt="" coords="872,79,945,104"/>
+<area shape="poly" title=" " alt="" coords="696,28,859,74,858,79,694,33"/>
+<area shape="rect" title=" " alt="" coords="970,79,1037,104"/>
+<area shape="poly" title=" " alt="" coords="718,28,957,76,956,81,717,33"/>
+<area shape="rect" href="ThreadSafeQueue_8h.html" title="Потокобезопасная очередь" alt="" coords="121,152,272,177"/>
+<area shape="poly" title=" " alt="" coords="360,107,242,150,240,145,358,102"/>
+<area shape="rect" title=" " alt="" coords="271,225,335,251"/>
+<area shape="poly" title=" " alt="" coords="379,106,358,127,338,153,323,184,312,213,307,211,318,181,333,151,354,124,375,102"/>
+<area shape="rect" title=" " alt="" coords="347,152,406,177"/>
+<area shape="poly" title=" " alt="" coords="390,105,384,139,379,138,385,104"/>
+<area shape="poly" title=" " alt="" coords="404,102,442,140,439,144,400,106"/>
+<area shape="poly" title=" " alt="" coords="419,102,524,144,522,149,417,106"/>
+<area shape="poly" title=" " alt="" coords="436,101,623,148,621,154,435,107"/>
+<area shape="rect" title=" " alt="" coords="172,225,235,251"/>
+<area shape="poly" title=" " alt="" coords="200,177,204,212,198,212,195,178"/>
+<area shape="poly" title=" " alt="" coords="215,175,276,215,273,220,212,180"/>
+<area shape="rect" title=" " alt="" coords="5,225,148,251"/>
+<area shape="poly" title=" " alt="" coords="179,180,110,220,107,216,176,175"/>
 </map>
 </div>
 </div><a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>

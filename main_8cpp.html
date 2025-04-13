@@ -96,41 +96,94 @@ $(document).ready(function(){initNavTree('main_8cpp.html',''); initResizable(); 
 
 <div class="header">
   <div class="summary">
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">main.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Основной файл демонстрации работы асинхронной обработки команд  
+<p>Интерактивный клиент для работы с асинхронной обработкой команд  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="async_8h_source.html">async.h</a>&quot;</code><br />
-<code>#include &lt;string&gt;</code><br />
+<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
+<code>#include &quot;<a class="el" href="ProcessorCommands_8h_source.html">ProcessorCommands.h</a>&quot;</code><br />
+<code>#include &lt;iosfwd&gt;</code><br />
+<code>#include &lt;thread&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &quot;<a class="el" href="async_8h_source.html">async.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for main.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8cpp__incl.png" border="0" usemap="#amain_8cpp" alt=""/></div>
 <map name="amain_8cpp" id="amain_8cpp">
-<area shape="rect" title="Основной файл демонстрации работы асинхронной обработки команд" alt="" coords="44,5,127,31"/>
-<area shape="rect" href="async_8h.html" title="Заголовочный файл асинхронного интерфейса" alt="" coords="5,79,77,104"/>
-<area shape="poly" title=" " alt="" coords="80,32,58,68,53,66,76,30"/>
-<area shape="rect" title=" " alt="" coords="101,79,160,104"/>
-<area shape="poly" title=" " alt="" coords="95,30,118,66,114,69,91,32"/>
-<area shape="rect" title=" " alt="" coords="6,152,77,177"/>
-<area shape="poly" title=" " alt="" coords="44,104,44,138,39,138,39,104"/>
+<area shape="rect" title="Интерактивный клиент для работы с асинхронной обработкой команд" alt="" coords="346,5,428,31"/>
+<area shape="rect" title=" " alt="" coords="36,152,116,177"/>
+<area shape="poly" title=" " alt="" coords="361,33,252,81,112,148,110,143,250,76,359,28"/>
+<area shape="rect" title=" " alt="" coords="141,152,214,177"/>
+<area shape="poly" title=" " alt="" coords="368,33,291,81,204,146,201,141,288,76,365,29"/>
+<area shape="rect" href="ProcessorCommands_8h.html" title=" " alt="" coords="302,79,472,104"/>
+<area shape="poly" title=" " alt="" coords="390,31,390,65,384,65,384,31"/>
+<area shape="rect" href="async_8h.html" title="Заголовочный файл асинхронного интерфейса" alt="" coords="576,225,648,251"/>
+<area shape="poly" title=" " alt="" coords="346,25,234,39,169,51,107,66,55,87,35,98,20,111,11,125,8,140,13,157,26,175,53,189,105,200,256,217,426,228,563,233,562,238,426,233,256,222,104,205,51,194,23,179,8,159,3,141,6,123,16,108,31,94,52,82,105,61,168,45,233,33,345,20"/>
+<area shape="rect" title=" " alt="" coords="862,152,926,177"/>
+<area shape="poly" title=" " alt="" coords="406,29,474,69,536,102,619,124,688,132,759,137,848,149,848,155,758,142,687,138,618,129,534,106,471,74,404,33"/>
+<area shape="rect" title=" " alt="" coords="547,79,611,104"/>
+<area shape="poly" title=" " alt="" coords="419,28,535,71,534,76,417,33"/>
+<area shape="rect" title=" " alt="" coords="636,79,698,104"/>
+<area shape="poly" title=" " alt="" coords="429,27,623,76,621,81,428,32"/>
+<area shape="poly" title=" " alt="" coords="338,107,131,154,129,149,336,101"/>
+<area shape="poly" title=" " alt="" coords="354,107,225,150,224,145,352,101"/>
+<area shape="rect" title=" " alt="" coords="448,152,507,177"/>
+<area shape="poly" title=" " alt="" coords="403,102,453,141,450,145,400,106"/>
+<area shape="rect" title=" " alt="" coords="531,152,608,177"/>
+<area shape="poly" title=" " alt="" coords="417,102,528,144,526,149,415,107"/>
+<area shape="poly" title=" " alt="" coords="473,101,562,120,599,133,622,150,630,165,631,182,625,213,620,212,626,181,625,167,618,154,596,138,561,125,472,106"/>
+<area shape="rect" href="ProcessorManager_8h.html" title=" " alt="" coords="684,152,837,177"/>
+<area shape="poly" title=" " alt="" coords="447,101,687,147,686,152,446,107"/>
+<area shape="poly" title=" " alt="" coords="473,100,668,123,848,149,848,155,667,129,472,105"/>
+<area shape="rect" title=" " alt="" coords="238,152,325,177"/>
+<area shape="poly" title=" " alt="" coords="371,106,311,147,308,142,368,102"/>
+<area shape="rect" title=" " alt="" coords="350,152,424,177"/>
+<area shape="poly" title=" " alt="" coords="390,104,390,138,384,138,384,104"/>
+<area shape="rect" title=" " alt="" coords="577,299,648,324"/>
+<area shape="poly" title=" " alt="" coords="615,251,615,285,610,285,610,251"/>
+<area shape="poly" title=" " alt="" coords="738,180,650,222,648,217,735,175"/>
+<area shape="rect" title=" " alt="" coords="852,225,976,251"/>
+<area shape="poly" title=" " alt="" coords="786,175,877,217,875,222,784,180"/>
+<area shape="rect" title=" " alt="" coords="672,225,736,251"/>
+<area shape="poly" title=" " alt="" coords="753,179,724,216,720,213,749,176"/>
+<area shape="rect" title=" " alt="" coords="760,225,827,251"/>
+<area shape="poly" title=" " alt="" coords="768,177,785,212,780,214,763,179"/>
 </map>
 </div>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespaceRESULT" id="r_namespaceRESULT"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceRESULT.html">RESULT</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ae362959cbc18ba0600289463331c9709" id="r_ae362959cbc18ba0600289463331c9709"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceRESULT.html#ae362959cbc18ba0600289463331c9709">RESULT::CODE</a> { <a class="el" href="namespaceRESULT.html#ae362959cbc18ba0600289463331c9709ab302bac158afc7d03a930d8b59aea37c">RESULT::OK</a>
+, <a class="el" href="namespaceRESULT.html#ae362959cbc18ba0600289463331c9709a475604ae9710487acf7f92b3822bd621">RESULT::ARGUMENT_PARSE_ERROR</a>
+, <a class="el" href="namespaceRESULT.html#ae362959cbc18ba0600289463331c9709a93b5a51391548d1d1815d0aa2f1cb88c">RESULT::FILE_OPENING_ERROR</a>
+ }</td></tr>
+<tr class="separator:ae362959cbc18ba0600289463331c9709"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4" id="r_ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
-<tr class="memdesc:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Основная функция программы  <br /></td></tr>
-<tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af98624a1540cc5d5cf993eddf1713bb3" id="r_af98624a1540cc5d5cf993eddf1713bb3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#af98624a1540cc5d5cf993eddf1713bb3">stress_test</a> ()</td></tr>
+<tr class="memdesc:af98624a1540cc5d5cf993eddf1713bb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stress test - 10 threads send 1000 commands - лучше не запускать :)  <br /></td></tr>
+<tr class="separator:af98624a1540cc5d5cf993eddf1713bb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97" id="r_a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
+<tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Основной файл демонстрации работы асинхронной обработки команд </p>
+<div class="textblock"><p>Интерактивный клиент для работы с асинхронной обработкой команд </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="ae66f6b31b5ad750f1fe042a706a4e3d4" name="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae66f6b31b5ad750f1fe042a706a4e3d4">&#9670;&#160;</a></span>main()</h2>
+<a id="a0ddf1224851353fc92bfbff6f499fa97" name="a0ddf1224851353fc92bfbff6f499fa97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ddf1224851353fc92bfbff6f499fa97">&#9670;&#160;</a></span>main()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -138,28 +191,41 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int main </td>
           <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>argv</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af98624a1540cc5d5cf993eddf1713bb3" name="af98624a1540cc5d5cf993eddf1713bb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af98624a1540cc5d5cf993eddf1713bb3">&#9670;&#160;</a></span>stress_test()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stress_test </td>
+          <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Основная функция программы </p>
-<dl class="section return"><dt>Returns</dt><dd>Код возврата (0 - успешное выполнение)</dd></dl>
-<p>Создает два процессора для обработки команд, отправляет тестовые данные и корректно завершает работу с освобождением ресурсов. </p>
-<p>Размер пакета</p>
-<p>Первый процессор</p>
-<p>Второй процессор</p>
-<p>Тестовые данные первому процессору (пакет 1)</p>
-<p>Тестовые данные первому процессору (пакет 2)</p>
-<p>Тестовые данные второму процессору (пакет 1)</p>
-<p>Тестовые данные второму процессору (пакет 2)</p>
-<p>Отправляем первому процессору (пакет 1)</p>
-<p>Отправляем второму процессору (пакет 1)</p>
-<p>Отправляем первому процессору (пакет 2)</p>
-<p>Отправляем второму процессору (пакет 2)</p>
-<p>Отключаем первый процессор</p>
-<p>Отключаем второй процессор</p>
+<p>Stress test - 10 threads send 1000 commands - лучше не запускать :) </p>
 
 </div>
 </div>

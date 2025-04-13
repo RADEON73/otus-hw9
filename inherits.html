@@ -101,38 +101,67 @@ $(document).ready(function(){initNavTree('hierarchy.html',''); initResizable(); 
 <div class="textblock">
 <p><a href="hierarchy.html">Go to the textual class hierarchy</a></p>
 </div><table border="0" cellspacing="10" cellpadding="0">
-<tr><td><img src="inherit_graph_0.png" border="0" usemap="#aBulkProcessor" alt=""/>
+<tr><td><img src="inherit_graph_0.png" border="0" usemap="#aBulkCommandFactory" alt=""/>
+<map name="aBulkCommandFactory" id="aBulkCommandFactory">
+<area shape="rect" href="classBulkCommandFactory.html" title="Фабрика для создания команд." alt="" coords="5,5,171,31"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_1.png" border="0" usemap="#aBulkProcessor" alt=""/>
 <map name="aBulkProcessor" id="aBulkProcessor">
 <area shape="rect" href="classBulkProcessor.html" title="Обрабатывает команды и управляет блоками команд." alt="" coords="5,5,120,31"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_1.png" border="0" usemap="#aCommandFactory" alt=""/>
+<tr><td><img src="inherit_graph_2.png" border="0" usemap="#aCommandFactory" alt=""/>
 <map name="aCommandFactory" id="aCommandFactory">
-<area shape="rect" href="classCommandFactory.html" title="Фабрика для создания команд." alt="" coords="5,5,141,31"/>
+<area shape="rect" href="classCommandFactory.html" title=" " alt="" coords="5,5,141,31"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_2.png" border="0" usemap="#aICommand" alt=""/>
+<tr><td><img src="inherit_graph_3.png" border="0" usemap="#aIBulkCommand" alt=""/>
+<map name="aIBulkCommand" id="aIBulkCommand">
+<area shape="rect" href="classIBulkCommand.html" title="Интерфейс для всех команд." alt="" coords="5,55,128,80"/>
+<area shape="rect" href="classEndBlockCommand.html" title="Команда для завершения текущего динамического блока." alt="" coords="179,5,329,31"/>
+<area shape="poly" title=" " alt="" coords="128,49,204,28,205,33,129,54"/>
+<area shape="rect" href="classRegularCommand.html" title="Команда для добавления обычной команды в блок." alt="" coords="185,55,323,80"/>
+<area shape="poly" title=" " alt="" coords="142,65,184,65,184,70,142,70"/>
+<area shape="rect" href="classStartBlockCommand.html" title="Команда для начала нового динамического блока." alt="" coords="176,104,332,129"/>
+<area shape="poly" title=" " alt="" coords="129,81,205,101,204,106,128,86"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_4.png" border="0" usemap="#aICommand" alt=""/>
 <map name="aICommand" id="aICommand">
-<area shape="rect" href="classICommand.html" title="Интерфейс для всех команд." alt="" coords="5,55,99,80"/>
-<area shape="rect" href="classEndBlockCommand.html" title="Команда для завершения текущего динамического блока." alt="" coords="150,5,299,31"/>
-<area shape="poly" title=" " alt="" coords="109,48,178,28,180,33,111,53"/>
-<area shape="rect" href="classRegularCommand.html" title="Команда для добавления обычной команды в блок." alt="" coords="155,55,294,80"/>
-<area shape="poly" title=" " alt="" coords="112,65,155,65,155,70,112,70"/>
-<area shape="rect" href="classStartBlockCommand.html" title="Команда для начала нового динамического блока." alt="" coords="147,104,303,129"/>
-<area shape="poly" title=" " alt="" coords="111,81,180,101,178,106,109,86"/>
+<area shape="rect" href="classICommand.html" title=" " alt="" coords="5,80,99,105"/>
+<area shape="rect" href="classHelpCommand.html" title=" " alt="" coords="163,55,282,80"/>
+<area shape="poly" title=" " alt="" coords="112,81,163,73,164,79,113,86"/>
+<area shape="rect" href="classProcessorCommand.html" title="Áàçîâûé êëàññ äëÿ êîìàíä, ðàáîòàþùèõ ñ ïðîöåññîðàìè" alt="" coords="147,104,299,129"/>
+<area shape="poly" title=" " alt="" coords="113,98,146,103,146,109,112,104"/>
+<area shape="rect" href="classConnectCommand.html" title="Êîíêðåòíûå êîìàíäû" alt="" coords="356,5,499,31"/>
+<area shape="poly" title=" " alt="" coords="284,96,297,89,311,77,320,65,330,52,345,40,370,28,372,33,348,44,334,56,325,68,315,81,300,94,286,101"/>
+<area shape="rect" href="classDisconnectCommand.html" title=" " alt="" coords="347,55,508,80"/>
+<area shape="poly" title=" " alt="" coords="288,98,373,77,374,83,290,103"/>
+<area shape="rect" href="classExitCommand.html" title=" " alt="" coords="370,104,485,129"/>
+<area shape="poly" title=" " alt="" coords="313,114,370,114,370,119,313,119"/>
+<area shape="rect" href="classListCommand.html" title=" " alt="" coords="371,153,483,179"/>
+<area shape="poly" title=" " alt="" coords="290,130,374,151,373,156,288,135"/>
+<area shape="rect" href="classReceiveCommand.html" title=" " alt="" coords="357,203,498,228"/>
+<area shape="poly" title=" " alt="" coords="255,135,298,162,348,188,381,200,379,205,346,192,296,166,253,140"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_3.png" border="0" usemap="#aMultiThreadOutputter" alt=""/>
+<tr><td><img src="inherit_graph_5.png" border="0" usemap="#aMultiThreadOutputter" alt=""/>
 <map name="aMultiThreadOutputter" id="aMultiThreadOutputter">
 <area shape="rect" href="classMultiThreadOutputter.html" title=" " alt="" coords="5,5,168,31"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_4.png" border="0" usemap="#aThreadSafeQueue_3_01std_1_1pair_3_01std_1_1vector_3_01std_1_1string_01_4_00_01time__t_01_4_01_4" alt=""/>
-<map name="aThreadSafeQueue_3_01std_1_1pair_3_01std_1_1vector_3_01std_1_1string_01_4_00_01time__t_01_4_01_4" id="aThreadSafeQueue_3_01std_1_1pair_3_01std_1_1vector_3_01std_1_1string_01_4_00_01time__t_01_4_01_4">
-<area shape="rect" href="classThreadSafeQueue.html" title=" " alt="" coords="5,5,192,60"/>
+<tr><td><img src="inherit_graph_6.png" border="0" usemap="#aProcessorManager" alt=""/>
+<map name="aProcessorManager" id="aProcessorManager">
+<area shape="rect" href="classProcessorManager.html" title="Êëàññ äëÿ óïðàâëåíèÿ ïðîöåññîðàìè" alt="" coords="5,5,148,31"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_5.png" border="0" usemap="#aThreadSafeQueue_3_01T_01_4" alt=""/>
+<tr><td><img src="inherit_graph_7.png" border="0" usemap="#aThreadSafeQueue_3_01ITEM_01_4" alt=""/>
+<map name="aThreadSafeQueue_3_01ITEM_01_4" id="aThreadSafeQueue_3_01ITEM_01_4">
+<area shape="rect" href="classThreadSafeQueue.html" title=" " alt="" coords="5,5,205,31"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_8.png" border="0" usemap="#aThreadSafeQueue_3_01T_01_4" alt=""/>
 <map name="aThreadSafeQueue_3_01T_01_4" id="aThreadSafeQueue_3_01T_01_4">
 <area shape="rect" href="classThreadSafeQueue.html" title=" " alt="" coords="5,5,181,31"/>
 </map>

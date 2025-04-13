@@ -1,3 +1,17 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$classThreadSafeQueue.html" title=" " alt="" coords="5,5,192,60"/>
+<area shape="rect" id="Node000000" href="$classICommand.html" title=" " alt="" coords="5,80,99,105"/>
+<area shape="rect" id="Node000001" href="$classHelpCommand.html" title=" " alt="" coords="163,55,282,80"/>
+<area shape="poly" id="edge4_Node000000_Node000001" title=" " alt="" coords="112,81,163,73,164,79,113,86"/>
+<area shape="rect" id="Node000002" href="$classProcessorCommand.html" title="Áàçîâûé êëàññ äëÿ êîìàíä, ðàáîòàþùèõ ñ ïðîöåññîðàìè" alt="" coords="147,104,299,129"/>
+<area shape="poly" id="edge5_Node000000_Node000002" title=" " alt="" coords="113,98,146,103,146,109,112,104"/>
+<area shape="rect" id="Node000003" href="$classConnectCommand.html" title="Êîíêðåòíûå êîìàíäû" alt="" coords="356,5,499,31"/>
+<area shape="poly" id="edge6_Node000002_Node000003" title=" " alt="" coords="284,96,297,89,311,77,320,65,330,52,345,40,370,28,372,33,348,44,334,56,325,68,315,81,300,94,286,101"/>
+<area shape="rect" id="Node000004" href="$classDisconnectCommand.html" title=" " alt="" coords="347,55,508,80"/>
+<area shape="poly" id="edge7_Node000002_Node000004" title=" " alt="" coords="288,98,373,77,374,83,290,103"/>
+<area shape="rect" id="Node000005" href="$classExitCommand.html" title=" " alt="" coords="370,104,485,129"/>
+<area shape="poly" id="edge8_Node000002_Node000005" title=" " alt="" coords="313,114,370,114,370,119,313,119"/>
+<area shape="rect" id="Node000006" href="$classListCommand.html" title=" " alt="" coords="371,153,483,179"/>
+<area shape="poly" id="edge9_Node000002_Node000006" title=" " alt="" coords="290,130,374,151,373,156,288,135"/>
+<area shape="rect" id="Node000007" href="$classReceiveCommand.html" title=" " alt="" coords="357,203,498,228"/>
+<area shape="poly" id="edge10_Node000002_Node000007" title=" " alt="" coords="255,135,298,162,348,188,381,200,379,205,346,192,296,166,253,140"/>
 </map>

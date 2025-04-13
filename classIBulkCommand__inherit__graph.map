@@ -1,0 +1,9 @@
+<map id="IBulkCommand" name="IBulkCommand">
+<area shape="rect" id="Node000001" title="Интерфейс для всех команд." alt="" coords="187,5,309,31"/>
+<area shape="rect" id="Node000002" href="$classEndBlockCommand.html" title="Команда для завершения текущего динамического блока." alt="" coords="5,79,155,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="210,38,109,81,106,76,207,34"/>
+<area shape="rect" id="Node000003" href="$classRegularCommand.html" title="Команда для добавления обычной команды в блок." alt="" coords="179,79,317,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="251,44,251,79,245,79,245,44"/>
+<area shape="rect" id="Node000004" href="$classStartBlockCommand.html" title="Команда для начала нового динамического блока." alt="" coords="342,79,498,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="289,33,393,76,391,81,287,38"/>
+</map>

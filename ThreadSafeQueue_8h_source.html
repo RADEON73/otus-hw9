@@ -122,7 +122,7 @@ $(document).ready(function(){initNavTree('ThreadSafeQueue_8h_source.html',''); i
 </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
 <div class="foldopen" id="foldopen00034" data-start="{" data-end="}">
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classThreadSafeQueue.html#a58b5532baa6110071f697ad1f9bfbf58">   34</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classThreadSafeQueue.html#a58b5532baa6110071f697ad1f9bfbf58">empty</a> ()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classThreadSafeQueue.html#a58b5532baa6110071f697ad1f9bfbf58">   34</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classThreadSafeQueue.html#a58b5532baa6110071f697ad1f9bfbf58">empty</a>()<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        std::scoped_lock lock(mutex_);</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keywordflow">return</span> queue_.empty();</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    }</div>
@@ -136,12 +136,31 @@ $(document).ready(function(){initNavTree('ThreadSafeQueue_8h_source.html',''); i
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        queue_.pop();</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    }</div>
 </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>};</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="foldopen" id="foldopen00050" data-start="{" data-end="}">
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classThreadSafeQueue.html#a8cd5e08dced66f7f20c07bb9f866dfde">   50</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classThreadSafeQueue.html#a8cd5e08dced66f7f20c07bb9f866dfde">try_pop</a>(T&amp; item) {</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        std::scoped_lock lock(mutex_);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="keywordflow">if</span> (queue_.empty()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        item = std::move(queue_.front());</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        queue_.pop();</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    }</div>
+</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="foldopen" id="foldopen00058" data-start="{" data-end="}">
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classThreadSafeQueue.html#ab255a078bfa2253878a2e17fd5a7a21c">   58</a></span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="classThreadSafeQueue.html#ab255a078bfa2253878a2e17fd5a7a21c">size</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        std::scoped_lock lock(mutex_);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keywordflow">return</span> queue_.size();</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    }</div>
+</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>};</div>
 </div>
 <div class="ttc" id="aclassThreadSafeQueue_html"><div class="ttname"><a href="classThreadSafeQueue.html">ThreadSafeQueue</a></div><div class="ttdef"><b>Definition</b> ThreadSafeQueue.h:14</div></div>
 <div class="ttc" id="aclassThreadSafeQueue_html_a402ba25c8544045726d5644568c30794"><div class="ttname"><a href="classThreadSafeQueue.html#a402ba25c8544045726d5644568c30794">ThreadSafeQueue::push</a></div><div class="ttdeci">void push(T item)</div><div class="ttdoc">Добавляет элемент в очередь</div><div class="ttdef"><b>Definition</b> ThreadSafeQueue.h:24</div></div>
 <div class="ttc" id="aclassThreadSafeQueue_html_a58b5532baa6110071f697ad1f9bfbf58"><div class="ttname"><a href="classThreadSafeQueue.html#a58b5532baa6110071f697ad1f9bfbf58">ThreadSafeQueue::empty</a></div><div class="ttdeci">bool empty() const</div><div class="ttdoc">Проверяет пустоту очереди</div><div class="ttdef"><b>Definition</b> ThreadSafeQueue.h:34</div></div>
 <div class="ttc" id="aclassThreadSafeQueue_html_a839e3e51354279a3070ead441cbe5e57"><div class="ttname"><a href="classThreadSafeQueue.html#a839e3e51354279a3070ead441cbe5e57">ThreadSafeQueue::wait_and_pop</a></div><div class="ttdeci">void wait_and_pop(T &amp;item)</div><div class="ttdoc">Извлекает элемент из очереди с ожиданием</div><div class="ttdef"><b>Definition</b> ThreadSafeQueue.h:43</div></div>
+<div class="ttc" id="aclassThreadSafeQueue_html_a8cd5e08dced66f7f20c07bb9f866dfde"><div class="ttname"><a href="classThreadSafeQueue.html#a8cd5e08dced66f7f20c07bb9f866dfde">ThreadSafeQueue::try_pop</a></div><div class="ttdeci">bool try_pop(T &amp;item)</div><div class="ttdef"><b>Definition</b> ThreadSafeQueue.h:50</div></div>
+<div class="ttc" id="aclassThreadSafeQueue_html_ab255a078bfa2253878a2e17fd5a7a21c"><div class="ttname"><a href="classThreadSafeQueue.html#ab255a078bfa2253878a2e17fd5a7a21c">ThreadSafeQueue::size</a></div><div class="ttdeci">size_t size() const</div><div class="ttdef"><b>Definition</b> ThreadSafeQueue.h:58</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

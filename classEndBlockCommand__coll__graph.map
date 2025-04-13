@@ -1,5 +1,5 @@
 <map id="EndBlockCommand" name="EndBlockCommand">
 <area shape="rect" id="Node000001" title="Команда для завершения текущего динамического блока." alt="" coords="5,79,155,104"/>
-<area shape="rect" id="Node000002" href="$classICommand.html" title="Интерфейс для всех команд." alt="" coords="33,5,127,31"/>
+<area shape="rect" id="Node000002" href="$classIBulkCommand.html" title="Интерфейс для всех команд." alt="" coords="19,5,141,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,44,83,79,77,79,77,44"/>
 </map>

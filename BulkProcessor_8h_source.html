@@ -102,50 +102,52 @@ $(document).ready(function(){initNavTree('BulkProcessor_8h_source.html',''); ini
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;atomic&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classBulkProcessor.html">   13</a></span><span class="keyword">class </span><a class="code hl_class" href="classBulkProcessor.html">BulkProcessor</a></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classBulkProcessor.html">BulkProcessor</a>(<span class="keywordtype">size_t</span> block_size);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_function" href="classBulkProcessor.html#a94751663d57038e73a946af68d95e47c">~BulkProcessor</a>();</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classBulkProcessor.html#a7e2539fd5428cea109d28cbbbaa18e48">finalize</a>();</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classBulkProcessor.html#ab453e3b788ee587b494fdb7b2e06d3dd">startBlock</a>();</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classBulkProcessor.html#a683d39b978a0bbfad9ef8c7c03bd8c88">endBlock</a>();</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classBulkProcessor.html#a08bf3c5f53951aa09ce3b07ec1af383f">addCommand</a>(<span class="keyword">const</span> std::string&amp; command);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classBulkProcessor.html#aaa6df43cb9ed53ebbf61f7adbe6ea163">parse</a>(<span class="keyword">const</span> std::string_view&amp; input);</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">void</span> process(<span class="keyword">const</span> std::string&amp; command);</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">void</span> flush();</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keyword">struct </span>Block</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    {</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="keywordtype">void</span> reset();</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        std::vector&lt;std::string&gt; data; </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="keywordtype">bool</span> is_dynamic{ <span class="keyword">false</span> }; </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="keywordtype">size_t</span> depth{ 0 }; </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        time_t createTimeStamp{ 0 }; </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    };</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordtype">size_t</span> block_size_; </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    Block current_block_; </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>};</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;mutex&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="foldopen" id="foldopen00014" data-start="{" data-end="};">
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="classBulkProcessor.html">   14</a></span><span class="keyword">class </span><a class="code hl_class" href="classBulkProcessor.html">BulkProcessor</a></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>{</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classBulkProcessor.html">BulkProcessor</a>(<span class="keywordtype">size_t</span> block_size);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_function" href="classBulkProcessor.html#a94751663d57038e73a946af68d95e47c">~BulkProcessor</a>();</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classBulkProcessor.html#a7e2539fd5428cea109d28cbbbaa18e48">finalize</a>();</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classBulkProcessor.html#ab453e3b788ee587b494fdb7b2e06d3dd">startBlock</a>();</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classBulkProcessor.html#a683d39b978a0bbfad9ef8c7c03bd8c88">endBlock</a>();</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classBulkProcessor.html#a08bf3c5f53951aa09ce3b07ec1af383f">addCommand</a>(<span class="keyword">const</span> std::string&amp; command);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classBulkProcessor.html#aaa6df43cb9ed53ebbf61f7adbe6ea163">parse</a>(<span class="keyword">const</span> std::string_view&amp; input);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordtype">void</span> process(<span class="keyword">const</span> std::string&amp; command);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">void</span> flush();</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keyword">struct </span>Block</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    {</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keywordtype">void</span> reset();</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        std::vector&lt;std::string&gt; data; </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="keywordtype">bool</span> is_dynamic{ <span class="keyword">false</span> }; </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keywordtype">size_t</span> depth{ 0 }; </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        time_t createTimeStamp{ 0 }; </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    };</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordtype">size_t</span> block_size_; </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    Block current_block_; </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keyword">mutable</span> std::mutex mutex_;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>};</div>
 </div>
-<div class="ttc" id="aclassBulkProcessor_html"><div class="ttname"><a href="classBulkProcessor.html">BulkProcessor</a></div><div class="ttdoc">Обрабатывает команды и управляет блоками команд.</div><div class="ttdef"><b>Definition</b> BulkProcessor.h:14</div></div>
-<div class="ttc" id="aclassBulkProcessor_html_a08bf3c5f53951aa09ce3b07ec1af383f"><div class="ttname"><a href="classBulkProcessor.html#a08bf3c5f53951aa09ce3b07ec1af383f">BulkProcessor::addCommand</a></div><div class="ttdeci">void addCommand(const std::string &amp;command)</div><div class="ttdoc">Добавляет команду в текущий блок.</div><div class="ttdef"><b>Definition</b> BulkProcessor.cpp:34</div></div>
-<div class="ttc" id="aclassBulkProcessor_html_a683d39b978a0bbfad9ef8c7c03bd8c88"><div class="ttname"><a href="classBulkProcessor.html#a683d39b978a0bbfad9ef8c7c03bd8c88">BulkProcessor::endBlock</a></div><div class="ttdeci">void endBlock()</div><div class="ttdoc">Завершает текущий динамический блок команд.</div><div class="ttdef"><b>Definition</b> BulkProcessor.cpp:26</div></div>
+<div class="ttc" id="aclassBulkProcessor_html"><div class="ttname"><a href="classBulkProcessor.html">BulkProcessor</a></div><div class="ttdoc">Обрабатывает команды и управляет блоками команд.</div><div class="ttdef"><b>Definition</b> BulkProcessor.h:15</div></div>
+<div class="ttc" id="aclassBulkProcessor_html_a08bf3c5f53951aa09ce3b07ec1af383f"><div class="ttname"><a href="classBulkProcessor.html#a08bf3c5f53951aa09ce3b07ec1af383f">BulkProcessor::addCommand</a></div><div class="ttdeci">void addCommand(const std::string &amp;command)</div><div class="ttdoc">Добавляет команду в текущий блок.</div><div class="ttdef"><b>Definition</b> BulkProcessor.cpp:33</div></div>
+<div class="ttc" id="aclassBulkProcessor_html_a683d39b978a0bbfad9ef8c7c03bd8c88"><div class="ttname"><a href="classBulkProcessor.html#a683d39b978a0bbfad9ef8c7c03bd8c88">BulkProcessor::endBlock</a></div><div class="ttdeci">void endBlock()</div><div class="ttdoc">Завершает текущий динамический блок команд.</div><div class="ttdef"><b>Definition</b> BulkProcessor.cpp:24</div></div>
 <div class="ttc" id="aclassBulkProcessor_html_a7e2539fd5428cea109d28cbbbaa18e48"><div class="ttname"><a href="classBulkProcessor.html#a7e2539fd5428cea109d28cbbbaa18e48">BulkProcessor::finalize</a></div><div class="ttdeci">void finalize()</div><div class="ttdoc">Завершает обработку команд и выполняет финализацию.</div><div class="ttdef"><b>Definition</b> BulkProcessor.cpp:65</div></div>
 <div class="ttc" id="aclassBulkProcessor_html_a94751663d57038e73a946af68d95e47c"><div class="ttname"><a href="classBulkProcessor.html#a94751663d57038e73a946af68d95e47c">BulkProcessor::~BulkProcessor</a></div><div class="ttdeci">~BulkProcessor()</div><div class="ttdoc">Деструктор класса BulkProcessor.</div><div class="ttdef"><b>Definition</b> BulkProcessor.cpp:12</div></div>
 <div class="ttc" id="aclassBulkProcessor_html_aaa6df43cb9ed53ebbf61f7adbe6ea163"><div class="ttname"><a href="classBulkProcessor.html#aaa6df43cb9ed53ebbf61f7adbe6ea163">BulkProcessor::parse</a></div><div class="ttdeci">void parse(const std::string_view &amp;input)</div><div class="ttdoc">Обрабатывает входную строку команд.</div><div class="ttdef"><b>Definition</b> BulkProcessor.cpp:42</div></div>
-<div class="ttc" id="aclassBulkProcessor_html_ab453e3b788ee587b494fdb7b2e06d3dd"><div class="ttname"><a href="classBulkProcessor.html#ab453e3b788ee587b494fdb7b2e06d3dd">BulkProcessor::startBlock</a></div><div class="ttdeci">void startBlock()</div><div class="ttdoc">Начинает новый динамический блок команд.</div><div class="ttdef"><b>Definition</b> BulkProcessor.cpp:19</div></div>
+<div class="ttc" id="aclassBulkProcessor_html_ab453e3b788ee587b494fdb7b2e06d3dd"><div class="ttname"><a href="classBulkProcessor.html#ab453e3b788ee587b494fdb7b2e06d3dd">BulkProcessor::startBlock</a></div><div class="ttdeci">void startBlock()</div><div class="ttdoc">Начинает новый динамический блок команд.</div><div class="ttdef"><b>Definition</b> BulkProcessor.cpp:16</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -96,29 +96,24 @@ $(document).ready(function(){initNavTree('classCommandFactory.html',''); initRes
 
 <div class="header">
   <div class="summary">
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classCommandFactory-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">CommandFactory Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Фабрика для создания команд.  
- <a href="classCommandFactory.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="CommandFactory_8h_source.html">CommandFactory.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="ProcessorCommands_8h_source.html">ProcessorCommands.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a7dfc983cda82bdbcd9c5db3638620f97" id="r_a7dfc983cda82bdbcd9c5db3638620f97"><td class="memItemLeft" align="right" valign="top">static std::unique_ptr&lt; <a class="el" href="classICommand.html">ICommand</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommandFactory.html#a7dfc983cda82bdbcd9c5db3638620f97">create</a> (const std::string &amp;command)</td></tr>
-<tr class="memdesc:a7dfc983cda82bdbcd9c5db3638620f97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создает команду на основе входной строки.  <br /></td></tr>
-<tr class="separator:a7dfc983cda82bdbcd9c5db3638620f97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a13e80399872df8a82dedb050a15399cf" id="r_a13e80399872df8a82dedb050a15399cf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommandFactory.html#a13e80399872df8a82dedb050a15399cf">CommandFactory</a> (<a class="el" href="classProcessorManager.html">ProcessorManager</a> &amp;mgr, bool interactive)</td></tr>
+<tr class="separator:a13e80399872df8a82dedb050a15399cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae99a1a0a9c050fb92d7bf84924aa8a05" id="r_ae99a1a0a9c050fb92d7bf84924aa8a05"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classICommand.html">ICommand</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommandFactory.html#ae99a1a0a9c050fb92d7bf84924aa8a05">createCommand</a> (const std::string &amp;cmd, std::istringstream &amp;iss)</td></tr>
+<tr class="separator:ae99a1a0a9c050fb92d7bf84924aa8a05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Фабрика для создания команд. </p>
-<p>Класс <a class="el" href="classCommandFactory.html" title="Фабрика для создания команд.">CommandFactory</a> создает объекты команд на основе входной строки. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a7dfc983cda82bdbcd9c5db3638620f97" name="a7dfc983cda82bdbcd9c5db3638620f97"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7dfc983cda82bdbcd9c5db3638620f97">&#9670;&#160;</a></span>create()</h2>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a13e80399872df8a82dedb050a15399cf" name="a13e80399872df8a82dedb050a15399cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13e80399872df8a82dedb050a15399cf">&#9670;&#160;</a></span>CommandFactory()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -127,33 +122,71 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static std::unique_ptr&lt; <a class="el" href="classICommand.html">ICommand</a> &gt; CommandFactory::create </td>
+          <td class="memname">CommandFactory::CommandFactory </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>command</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classProcessorManager.html">ProcessorManager</a> &amp;&#160;</td>
+          <td class="paramname"><em>mgr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>interactive</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Создает команду на основе входной строки. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">command</td><td>Входная строка команды. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Указатель на созданную команду. </dd></dl>
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae99a1a0a9c050fb92d7bf84924aa8a05" name="ae99a1a0a9c050fb92d7bf84924aa8a05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae99a1a0a9c050fb92d7bf84924aa8a05">&#9670;&#160;</a></span>createCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt; <a class="el" href="classICommand.html">ICommand</a> &gt; CommandFactory::createCommand </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::istringstream &amp;&#160;</td>
+          <td class="paramname"><em>iss</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="CommandFactory_8h_source.html">CommandFactory.h</a></li>
+<li><a class="el" href="ProcessorCommands_8h_source.html">ProcessorCommands.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

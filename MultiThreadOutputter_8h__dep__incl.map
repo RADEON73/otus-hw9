@@ -1,7 +1,9 @@
 <map id="MultiThreadOutputter.h" name="MultiThreadOutputter.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="82,5,255,31"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="177,5,350,31"/>
 <area shape="rect" id="Node000002" href="$BulkProcessor_8cpp.html" title=" " alt="" coords="5,79,145,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,41,92,81,89,76,141,37"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="221,38,107,81,105,76,220,33"/>
 <area shape="rect" id="Node000003" href="$MultiThreadOutputter_8cpp.html" title="Реализация класса MultiThreadOutputter." alt="" coords="169,79,357,104"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="196,37,249,76,246,81,193,41"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="266,44,266,79,261,79,261,44"/>
+<area shape="rect" id="Node000004" href="$async_8cpp.html" title="Реализация функций асинхронного интерфейса" alt="" coords="381,79,468,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="303,34,399,76,397,81,301,39"/>
 </map>

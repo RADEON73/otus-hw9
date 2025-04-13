@@ -2,6 +2,9 @@ var searchData=
 [
   ['readme_2emd_0',['README.md',['../README_8md.html',1,'']]],
   ['receive_1',['receive',['../namespaceasync.html#aa9c679d89091c2ae453ca2b7dcbe0853',1,'async']]],
-  ['regularcommand_2',['regularcommand',['../classRegularCommand.html',1,'RegularCommand'],['../classRegularCommand.html#ac8175417e4cfda93d14fd10f7164a394',1,'RegularCommand::RegularCommand()']]],
-  ['running_3',['running',['../classMultiThreadOutputter.html#aee964e7f528a39b71dbbf4efb3f52c85',1,'MultiThreadOutputter']]]
+  ['receivecommand_2',['ReceiveCommand',['../classReceiveCommand.html',1,'']]],
+  ['regularcommand_3',['regularcommand',['../classRegularCommand.html',1,'RegularCommand'],['../classRegularCommand.html#ac8175417e4cfda93d14fd10f7164a394',1,'RegularCommand::RegularCommand()']]],
+  ['removeprocessor_4',['removeProcessor',['../classProcessorManager.html#a92866336e564443155d91dfdf0b1d6c0',1,'ProcessorManager']]],
+  ['request_5fstop_5',['request_stop',['../classMultiThreadOutputter.html#ac0177285bb78886ed0bc57b041cebf96',1,'MultiThreadOutputter']]],
+  ['result_6',['RESULT',['../namespaceRESULT.html',1,'']]]
 ];

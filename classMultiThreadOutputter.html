@@ -110,9 +110,9 @@ Collaboration diagram for MultiThreadOutputter:</div>
 <div class="dyncontent">
 <div class="center"><img src="classMultiThreadOutputter__coll__graph.png" border="0" usemap="#aMultiThreadOutputter_coll__map" alt="Collaboration graph"/></div>
 <map name="aMultiThreadOutputter_coll__map" id="aMultiThreadOutputter_coll__map">
-<area shape="rect" title=" " alt="" coords="17,137,180,163"/>
-<area shape="rect" href="classThreadSafeQueue.html" title=" " alt="" coords="5,5,192,60"/>
-<area shape="poly" title=" " alt="" coords="101,74,101,137,96,137,96,74"/>
+<area shape="rect" title=" " alt="" coords="24,108,187,133"/>
+<area shape="rect" href="classThreadSafeQueue.html" title=" " alt="" coords="5,5,205,31"/>
+<area shape="poly" title=" " alt="" coords="108,45,108,108,103,108,103,45"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -124,9 +124,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a4f95ffc456ac8b002167b6252565d4e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad62389ed89ea9e9673c72177970fd192" id="r_ad62389ed89ea9e9673c72177970fd192"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMultiThreadOutputter.html#ad62389ed89ea9e9673c72177970fd192">~MultiThreadOutputter</a> ()</td></tr>
 <tr class="separator:ad62389ed89ea9e9673c72177970fd192"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95e4ec19345daca21a541e6ae24dd589" id="r_a95e4ec19345daca21a541e6ae24dd589"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMultiThreadOutputter.html#a95e4ec19345daca21a541e6ae24dd589">waitUntilDone</a> () const</td></tr>
-<tr class="memdesc:a95e4ec19345daca21a541e6ae24dd589"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ожидает завершения работы потоков  <br /></td></tr>
-<tr class="separator:a95e4ec19345daca21a541e6ae24dd589"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0177285bb78886ed0bc57b041cebf96" id="r_ac0177285bb78886ed0bc57b041cebf96"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMultiThreadOutputter.html#ac0177285bb78886ed0bc57b041cebf96">request_stop</a> ()</td></tr>
+<tr class="separator:ac0177285bb78886ed0bc57b041cebf96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -135,18 +134,12 @@ Static Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a118ec0616fa7817297c52182eae3b7c7" id="r_a118ec0616fa7817297c52182eae3b7c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classThreadSafeQueue.html">ThreadSafeQueue</a>&lt; std::pair&lt; std::vector&lt; std::string &gt;, time_t &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMultiThreadOutputter.html#a118ec0616fa7817297c52182eae3b7c7">log_queue</a></td></tr>
-<tr class="memdesc:a118ec0616fa7817297c52182eae3b7c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Очередь логирования  <br /></td></tr>
-<tr class="separator:a118ec0616fa7817297c52182eae3b7c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8cbfadef4017379fd435d4980ac7b1a3" id="r_a8cbfadef4017379fd435d4980ac7b1a3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classThreadSafeQueue.html">ThreadSafeQueue</a>&lt; std::pair&lt; std::vector&lt; std::string &gt;, time_t &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMultiThreadOutputter.html#a8cbfadef4017379fd435d4980ac7b1a3">file_queue</a></td></tr>
-<tr class="memdesc:a8cbfadef4017379fd435d4980ac7b1a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Очередь записи в файл  <br /></td></tr>
-<tr class="separator:a8cbfadef4017379fd435d4980ac7b1a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a69ce5ecebef1d70b4268ef082c72af" id="r_a5a69ce5ecebef1d70b4268ef082c72af"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMultiThreadOutputter.html#a5a69ce5ecebef1d70b4268ef082c72af">client_count</a></td></tr>
-<tr class="memdesc:a5a69ce5ecebef1d70b4268ef082c72af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Количество клиентов (лоя подсчета завершения процесса)  <br /></td></tr>
-<tr class="separator:a5a69ce5ecebef1d70b4268ef082c72af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee964e7f528a39b71dbbf4efb3f52c85" id="r_aee964e7f528a39b71dbbf4efb3f52c85"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMultiThreadOutputter.html#aee964e7f528a39b71dbbf4efb3f52c85">running</a> { true }</td></tr>
-<tr class="memdesc:aee964e7f528a39b71dbbf4efb3f52c85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Флаг для контроля работы потоков  <br /></td></tr>
-<tr class="separator:aee964e7f528a39b71dbbf4efb3f52c85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0656c69f42ec5f601b358ea697f8b15" id="r_af0656c69f42ec5f601b358ea697f8b15"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classThreadSafeQueue.html">ThreadSafeQueue</a>&lt; ITEM &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMultiThreadOutputter.html#af0656c69f42ec5f601b358ea697f8b15">log_queue</a></td></tr>
+<tr class="memdesc:af0656c69f42ec5f601b358ea697f8b15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Очередь логирования  <br /></td></tr>
+<tr class="separator:af0656c69f42ec5f601b358ea697f8b15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fa0614817517cc475eeebc17f3fa913" id="r_a7fa0614817517cc475eeebc17f3fa913"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classThreadSafeQueue.html">ThreadSafeQueue</a>&lt; ITEM &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMultiThreadOutputter.html#a7fa0614817517cc475eeebc17f3fa913">file_queue</a></td></tr>
+<tr class="memdesc:a7fa0614817517cc475eeebc17f3fa913"><td class="mdescLeft">&#160;</td><td class="mdescRight">Очередь записи в файл  <br /></td></tr>
+<tr class="separator:a7fa0614817517cc475eeebc17f3fa913"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a46205e510e8828251655507a18c444f8" name="a46205e510e8828251655507a18c444f8"></a>
@@ -244,51 +237,32 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a95e4ec19345daca21a541e6ae24dd589" name="a95e4ec19345daca21a541e6ae24dd589"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a95e4ec19345daca21a541e6ae24dd589">&#9670;&#160;</a></span>waitUntilDone()</h2>
+<a id="ac0177285bb78886ed0bc57b041cebf96" name="ac0177285bb78886ed0bc57b041cebf96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0177285bb78886ed0bc57b041cebf96">&#9670;&#160;</a></span>request_stop()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void MultiThreadOutputter::waitUntilDone </td>
+          <td class="memname">void MultiThreadOutputter::request_stop </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Ожидает завершения работы потоков </p>
-<p>Не дает завершить приложение до тех пор, пока очереди не опустеют, а потоки не завершатся </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a5a69ce5ecebef1d70b4268ef082c72af" name="a5a69ce5ecebef1d70b4268ef082c72af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5a69ce5ecebef1d70b4268ef082c72af">&#9670;&#160;</a></span>client_count</h2>
+<a id="a7fa0614817517cc475eeebc17f3fa913" name="a7fa0614817517cc475eeebc17f3fa913"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fa0614817517cc475eeebc17f3fa913">&#9670;&#160;</a></span>file_queue</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::atomic&lt;int&gt; MultiThreadOutputter::client_count</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Количество клиентов (лоя подсчета завершения процесса) </p>
-
-</div>
-</div>
-<a id="a8cbfadef4017379fd435d4980ac7b1a3" name="a8cbfadef4017379fd435d4980ac7b1a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8cbfadef4017379fd435d4980ac7b1a3">&#9670;&#160;</a></span>file_queue</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classThreadSafeQueue.html">ThreadSafeQueue</a>&lt;std::pair&lt;std::vector&lt;std::string&gt;, time_t&gt; &gt; MultiThreadOutputter::file_queue</td>
+          <td class="memname"><a class="el" href="classThreadSafeQueue.html">ThreadSafeQueue</a>&lt;ITEM&gt; MultiThreadOutputter::file_queue</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -297,35 +271,19 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a118ec0616fa7817297c52182eae3b7c7" name="a118ec0616fa7817297c52182eae3b7c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a118ec0616fa7817297c52182eae3b7c7">&#9670;&#160;</a></span>log_queue</h2>
+<a id="af0656c69f42ec5f601b358ea697f8b15" name="af0656c69f42ec5f601b358ea697f8b15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0656c69f42ec5f601b358ea697f8b15">&#9670;&#160;</a></span>log_queue</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classThreadSafeQueue.html">ThreadSafeQueue</a>&lt;std::pair&lt;std::vector&lt;std::string&gt;, time_t&gt; &gt; MultiThreadOutputter::log_queue</td>
+          <td class="memname"><a class="el" href="classThreadSafeQueue.html">ThreadSafeQueue</a>&lt;ITEM&gt; MultiThreadOutputter::log_queue</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Очередь логирования </p>
-
-</div>
-</div>
-<a id="aee964e7f528a39b71dbbf4efb3f52c85" name="aee964e7f528a39b71dbbf4efb3f52c85"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee964e7f528a39b71dbbf4efb3f52c85">&#9670;&#160;</a></span>running</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::atomic&lt;bool&gt; MultiThreadOutputter::running { true }</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Флаг для контроля работы потоков </p>
 
 </div>
 </div>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['multithreadoutputter_0',['MultiThreadOutputter',['../classMultiThreadOutputter.html',1,'']]]
+  ['helpcommand_0',['HelpCommand',['../classHelpCommand.html',1,'']]]
 ];
