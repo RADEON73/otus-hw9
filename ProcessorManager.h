@@ -2,6 +2,7 @@
 #include "async.h"
 #include <unordered_map>
 #include <mutex>
+#include <atomic>
 
 /// Класс для управления процессорами
 class ProcessorManager

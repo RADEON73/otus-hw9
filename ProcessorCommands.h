@@ -3,10 +3,11 @@
 #include <string>
 #include <memory>
 #include "async.h"
-#include <sstream>
 #include "ProcessorManager.h"
 #include <iosfwd>
-#include <stdexcept>
+#include <exception>
+#include <ostream>
+#include <string_view>
 
 /// Справка
 static void print_help() {

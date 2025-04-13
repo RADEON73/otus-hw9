@@ -6,6 +6,9 @@
 #include <fstream>
 #include "ProcessorCommands.h"
 #include <iosfwd>
+#include <thread>
+#include <vector>
+#include "async.h"
 
 namespace RESULT {
 	enum CODE
@@ -23,7 +26,7 @@ void stress_test() {
 
 	std::vector<std::jthread> threads;
 	for (int i = 0; i < 10; ++i) {
-		threads.emplace_back([=] {
+		threads.emplace_back([handle1, handle2] {
 			for (int j = 0; j < 1000; ++j) {
 				async::receive(handle1, "cmd\n", 4);
 				async::receive(handle2, "cmd\n", 4);
