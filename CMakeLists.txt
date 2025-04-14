@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.29)
 
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 
-project(async VERSION 1.1.0)
+project(async VERSION 1.1.1)
 
 add_executable(main 
 main.cpp

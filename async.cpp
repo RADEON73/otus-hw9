@@ -31,7 +31,7 @@ namespace async {
 	}
 
 	void disconnect(HANDLE handle) {
-		if (!handle) 
+		if (!handle)
 			return;
 		auto processor = static_cast<BulkProcessor*>(handle);
 		processor->finalize();

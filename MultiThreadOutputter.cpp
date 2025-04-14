@@ -21,22 +21,6 @@ MultiThreadOutputter& MultiThreadOutputter::getInstance() {
 	return instance;
 }
 
-void MultiThreadOutputter::request_stop()
-{
-	if (!stop_source_.stop_requested()) {
-		stop_source_.request_stop();
-		// Ожидаем завершения с таймаутом
-		auto start = std::chrono::steady_clock::now();
-		while (!log_queue.empty() || !file_queue.empty()) {
-			if (std::chrono::steady_clock::now() - start > std::chrono::seconds(5)) {
-				std::cerr << "Warning: Force stopping with pending items\n";
-				break;
-			}
-			std::this_thread::sleep_for(std::chrono::milliseconds(10));
-		}
-	}
-}
-
 MultiThreadOutputter::MultiThreadOutputter() :
 	log_thread(&MultiThreadOutputter::log_worker, this, stop_source_.get_token()),
 	file_thread1(&MultiThreadOutputter::file_worker, this, 1, stop_source_.get_token()),
@@ -102,12 +86,11 @@ void MultiThreadOutputter::file_worker(int id, std::stop_token stoken) {
 	std::uniform_int_distribution dis(100000000, 999999999);
 	ITEM item;
 	while (!stoken.stop_requested()) {
-
 		if (file_queue.try_pop(item)) {
 			process_file_item(id, item, gen, dis);
 		}
 		else if (log_queue.size() > 100) { // Балансировка нагрузки: если log_queue переполнен, то помогаем с обработкой
-			if (log_queue.try_pop(item))  
+			if (log_queue.try_pop(item))
 				process_log_item(item);
 		}
 		else

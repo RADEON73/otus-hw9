@@ -18,8 +18,6 @@ public:
 
 	static MultiThreadOutputter& getInstance();
 
-	void request_stop();
-
 	ThreadSafeQueue<ITEM> log_queue; ///< Очередь логирования
 	ThreadSafeQueue<ITEM> file_queue; ///< Очередь записи в файл
 

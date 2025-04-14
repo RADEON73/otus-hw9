@@ -81,9 +81,9 @@ void BulkProcessor::Block::reset()
 void BulkProcessor::flush() {
 	if (!current_block_.data.empty()) {
 		try {
-		auto& outputter = MultiThreadOutputter::getInstance();
-		outputter.log_queue.push({ current_block_.data, current_block_.createTimeStamp });
-		outputter.file_queue.push({ current_block_.data, current_block_.createTimeStamp });
+			auto& outputter = MultiThreadOutputter::getInstance();
+			outputter.log_queue.push({ current_block_.data, current_block_.createTimeStamp });
+			outputter.file_queue.push({ current_block_.data, current_block_.createTimeStamp });
 		}
 		catch (const std::exception& e) {
 			std::cerr << "Failed to flush block: " << e.what() << std::endl;

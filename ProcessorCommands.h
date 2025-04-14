@@ -8,7 +8,8 @@
 #include <exception>
 #include <fstream>
 #include <sstream>
-/// �������
+
+/// @brief Выводит справочную информацию о доступных командах
 static void print_help() {
 	std::cout << "Available commands:\n"
 		<< "  connect <BS>          - Create new processor with bulk size BS\n"
@@ -19,26 +20,35 @@ static void print_help() {
 		<< "  exit                  - Exit program\n";
 }
 
-// ������� ��������� �������
+/// @brief Базовый интерфейс команды
 class ICommand
 {
 public:
 	virtual ~ICommand() = default;
+
+	/// @brief Выполняет команду
 	virtual void execute() = 0;
 };
 
-/// ������� ����� ��� ������, ���������� � ������������
+/// @brief Базовый класс для команд, работающих с процессорами
+/// @details Предоставляет общий функционал для команд, взаимодействующих с ProcessorManager
 class ProcessorCommand : public ICommand
 {
 public:
-	ProcessorManager& manager;
-	std::istringstream& iss;
-	bool interactive;
+	ProcessorManager& manager;       ///< Менеджер процессоров
+	std::istringstream& iss;        ///< Поток ввода для чтения аргументов команды
+	bool interactive;               ///< Флаг интерактивного режима
 
+	/// @brief Конструктор базовой команды процессора
+	/// @param mgr Ссылка на менеджер процессоров
+	/// @param input Поток ввода для чтения аргументов
+	/// @param interactive Флаг интерактивного режима
 	ProcessorCommand(ProcessorManager& mgr, std::istringstream& input, bool interactive)
 		: manager(mgr), iss(input), interactive(interactive) {
 	}
 
+	/// @brief Логирует ошибку в интерактивном режиме
+	/// @param message Текст сообщения об ошибке
 	void logError(const std::string_view message) const
 	{
 		if (interactive)
@@ -46,12 +56,15 @@ public:
 	}
 };
 
-/// ���������� �������
+/// @brief Команда создания нового процессора
 class ConnectCommand : public ProcessorCommand
 {
 public:
 	using ProcessorCommand::ProcessorCommand;
 
+	/// @brief Создает новый процессор с указанным размером блока
+	/// @details Формат команды: connect <BS>
+	/// где BS - размер блока команд для обработки
 	void execute() override {
 		size_t packSize;
 		if (iss >> packSize) {
@@ -63,11 +76,15 @@ public:
 	}
 };
 
+/// @brief Команда отправки данных процессору
 class ReceiveCommand : public ProcessorCommand
 {
 public:
 	using ProcessorCommand::ProcessorCommand;
 
+	/// @brief Отправляет данные указанному процессору
+	/// @details Формат команды: receive <PID> <DATA>
+	/// где PID - идентификатор процессора, DATA - данные для обработки
 	void execute() override {
 		int id;
 		if (std::string data; iss >> id && getline(iss, data)) {
@@ -89,11 +106,15 @@ public:
 	}
 };
 
+/// @brief Команда отключения процессора
 class DisconnectCommand : public ProcessorCommand
 {
 public:
 	using ProcessorCommand::ProcessorCommand;
 
+	/// @brief Отключает указанный процессор
+	/// @details Формат команды: disconnect <PID>
+	/// где PID - идентификатор процессора для отключения
 	void execute() override {
 		int id;
 		if (iss >> id) {
@@ -110,11 +131,14 @@ public:
 	}
 };
 
+/// @brief Команда вывода списка активных процессоров
 class ListCommand : public ProcessorCommand
 {
 public:
 	using ProcessorCommand::ProcessorCommand;
 
+	/// @brief Выводит список активных процессоров
+	/// @details Работает только в интерактивном режиме
 	void execute() override {
 		if (!interactive)
 			return;
@@ -131,42 +155,55 @@ public:
 	}
 };
 
+/// @brief Команда вывода справки
 class HelpCommand : public ICommand
 {
-	bool interactive;
+	bool interactive; ///< Флаг интерактивного режима
 
 public:
+	/// @brief Конструктор команды помощи
+	/// @param interactive Флаг интерактивного режима
 	explicit HelpCommand(bool interactive) : interactive(interactive) {}
 
+	/// @brief Выводит справочную информацию
 	void execute() override {
 		if (interactive)
 			print_help();
 	}
 };
 
+/// @brief Команда выхода из программы
 class ExitCommand : public ProcessorCommand
 {
 public:
 	using ProcessorCommand::ProcessorCommand;
 
+	/// @brief Инициирует завершение работы программы
 	void execute() override { manager.closeRequest(); }
 };
 
-// ������� ������
+/// @brief Фабрика создания команд
 class CommandFactory
 {
 private:
-	ProcessorManager& manager;
-	bool interactive;
+	ProcessorManager& manager; ///< Менеджер процессоров
+	bool interactive;          ///< Флаг интерактивного режима
 
 public:
+	/// @brief Конструктор фабрики команд
+	/// @param mgr Ссылка на менеджер процессоров
+	/// @param interactive Флаг интерактивного режима
 	CommandFactory(ProcessorManager& mgr, bool interactive)
 		: manager(mgr), interactive(interactive) {
 	}
 
+	/// @brief Создает команду на основе входных данных
+	/// @param cmd Имя команды
+	/// @param iss Поток ввода с аргументами команды
+	/// @return Указатель на созданную команду или nullptr если команда не распознана
 	std::unique_ptr<ICommand> createCommand(const std::string& cmd, std::istringstream& iss) {
 		if (cmd.empty() || cmd[0] == '#') {
-			return nullptr; // Skip empty lines and comments
+			return nullptr; // Пропускаем пустые строки и комментарии
 		}
 
 		try {
@@ -195,7 +232,7 @@ public:
 		}
 		catch (const std::exception& e) {
 			if (interactive) {
-			std::cerr << "Command error: " << e.what() << std::endl;
+				std::cerr << "Command error: " << e.what() << std::endl;
 			}
 			return nullptr;
 		}
@@ -203,7 +240,9 @@ public:
 	}
 };
 
-// �������� ������� ��������� ������
+/// @brief Обрабатывает команды из входного потока
+/// @param input Входной поток с командами
+/// @param interactive Флаг интерактивного режима (по умолчанию true)
 void process_commands_from_stream(std::istream& input, bool interactive = true) {
 	ProcessorManager manager;
 	CommandFactory factory(manager, interactive);
