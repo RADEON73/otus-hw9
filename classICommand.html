@@ -102,26 +102,29 @@ $(document).ready(function(){initNavTree('classICommand.html',''); initResizable
 </div><!--header-->
 <div class="contents">
 
+<p>Базовый интерфейс команды  
+ <a href="classICommand.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="ProcessorCommands_8h_source.html">ProcessorCommands.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for ICommand:</div>
 <div class="dyncontent">
 <div class="center"><img src="classICommand__inherit__graph.png" border="0" usemap="#aICommand_inherit__map" alt="Inheritance graph"/></div>
 <map name="aICommand_inherit__map" id="aICommand_inherit__map">
-<area shape="rect" title=" " alt="" coords="289,5,382,31"/>
-<area shape="rect" href="classHelpCommand.html" title=" " alt="" coords="196,79,315,104"/>
+<area shape="rect" title="Базовый интерфейс команды" alt="" coords="289,5,382,31"/>
+<area shape="rect" href="classHelpCommand.html" title="Команда вывода справки" alt="" coords="196,79,315,104"/>
 <area shape="poly" title=" " alt="" coords="314,42,270,80,267,76,311,38"/>
-<area shape="rect" href="classProcessorCommand.html" title="Áàçîâûé êëàññ äëÿ êîìàíä, ðàáîòàþùèõ ñ ïðîöåññîðàìè" alt="" coords="339,79,491,104"/>
+<area shape="rect" href="classProcessorCommand.html" title="Базовый класс для команд, работающих с процессорами" alt="" coords="339,79,491,104"/>
 <area shape="poly" title=" " alt="" coords="360,38,404,76,400,80,356,42"/>
-<area shape="rect" href="classConnectCommand.html" title="Êîíêðåòíûå êîìàíäû" alt="" coords="5,152,148,177"/>
+<area shape="rect" href="classConnectCommand.html" title="Команда создания нового процессора" alt="" coords="5,152,148,177"/>
 <area shape="poly" title=" " alt="" coords="348,109,132,155,131,149,347,104"/>
-<area shape="rect" href="classDisconnectCommand.html" title=" " alt="" coords="172,152,333,177"/>
+<area shape="rect" href="classDisconnectCommand.html" title="Команда отключения процессора" alt="" coords="172,152,333,177"/>
 <area shape="poly" title=" " alt="" coords="378,112,280,154,278,149,376,107"/>
-<area shape="rect" href="classExitCommand.html" title=" " alt="" coords="358,152,473,177"/>
+<area shape="rect" href="classExitCommand.html" title="Команда выхода из программы" alt="" coords="358,152,473,177"/>
 <area shape="poly" title=" " alt="" coords="418,118,418,152,413,152,413,118"/>
-<area shape="rect" href="classListCommand.html" title=" " alt="" coords="497,152,609,177"/>
+<area shape="rect" href="classListCommand.html" title="Команда вывода списка активных процессоров" alt="" coords="497,152,609,177"/>
 <area shape="poly" title=" " alt="" coords="451,108,531,149,529,154,448,113"/>
-<area shape="rect" href="classReceiveCommand.html" title=" " alt="" coords="633,152,774,177"/>
+<area shape="rect" href="classReceiveCommand.html" title="Команда отправки данных процессору" alt="" coords="633,152,774,177"/>
 <area shape="poly" title=" " alt="" coords="475,105,657,149,656,154,474,110"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
@@ -131,9 +134,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa8a6346c5a0dcfe7fd49413a69e854ef" id="r_aa8a6346c5a0dcfe7fd49413a69e854ef"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classICommand.html#aa8a6346c5a0dcfe7fd49413a69e854ef">~ICommand</a> ()=default</td></tr>
 <tr class="separator:aa8a6346c5a0dcfe7fd49413a69e854ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace81beb0beea968f876f292446bf1120" id="r_ace81beb0beea968f876f292446bf1120"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classICommand.html#ace81beb0beea968f876f292446bf1120">execute</a> ()=0</td></tr>
+<tr class="memdesc:ace81beb0beea968f876f292446bf1120"><td class="mdescLeft">&#160;</td><td class="mdescRight">Выполняет команду  <br /></td></tr>
 <tr class="separator:ace81beb0beea968f876f292446bf1120"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Базовый интерфейс команды </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa8a6346c5a0dcfe7fd49413a69e854ef" name="aa8a6346c5a0dcfe7fd49413a69e854ef"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa8a6346c5a0dcfe7fd49413a69e854ef">&#9670;&#160;</a></span>~ICommand()</h2>
 
@@ -182,6 +188,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Выполняет команду </p>
 
 <p>Implemented in <a class="el" href="classConnectCommand.html#a4b02ca2572f1f5d4282ae961b916d172">ConnectCommand</a>, <a class="el" href="classReceiveCommand.html#aa6c03ceb8269b6235b70f4867903a202">ReceiveCommand</a>, <a class="el" href="classDisconnectCommand.html#a43cc67de69b25f7f52b49caff827c9f3">DisconnectCommand</a>, <a class="el" href="classListCommand.html#a48f471fa9f4cd131f9fdee22e85cf110">ListCommand</a>, <a class="el" href="classHelpCommand.html#ae937e50237b12328bfbd4526caf7f47e">HelpCommand</a>, and <a class="el" href="classExitCommand.html#a9dc6a444c5c4eaa2202b3f378755d70b">ExitCommand</a>.</p>
 

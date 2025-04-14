@@ -102,16 +102,23 @@ $(document).ready(function(){initNavTree('classCommandFactory.html',''); initRes
 </div><!--header-->
 <div class="contents">
 
+<p>Фабрика создания команд  
+ <a href="classCommandFactory.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="ProcessorCommands_8h_source.html">ProcessorCommands.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a13e80399872df8a82dedb050a15399cf" id="r_a13e80399872df8a82dedb050a15399cf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommandFactory.html#a13e80399872df8a82dedb050a15399cf">CommandFactory</a> (<a class="el" href="classProcessorManager.html">ProcessorManager</a> &amp;mgr, bool interactive)</td></tr>
+<tr class="memdesc:a13e80399872df8a82dedb050a15399cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор фабрики команд  <br /></td></tr>
 <tr class="separator:a13e80399872df8a82dedb050a15399cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae99a1a0a9c050fb92d7bf84924aa8a05" id="r_ae99a1a0a9c050fb92d7bf84924aa8a05"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classICommand.html">ICommand</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommandFactory.html#ae99a1a0a9c050fb92d7bf84924aa8a05">createCommand</a> (const std::string &amp;cmd, std::istringstream &amp;iss)</td></tr>
+<tr class="memdesc:ae99a1a0a9c050fb92d7bf84924aa8a05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создает команду на основе входных данных  <br /></td></tr>
 <tr class="separator:ae99a1a0a9c050fb92d7bf84924aa8a05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Фабрика создания команд </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a13e80399872df8a82dedb050a15399cf" name="a13e80399872df8a82dedb050a15399cf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a13e80399872df8a82dedb050a15399cf">&#9670;&#160;</a></span>CommandFactory()</h2>
 
@@ -145,6 +152,15 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Конструктор фабрики команд </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mgr</td><td>Ссылка на менеджер процессоров </td></tr>
+    <tr><td class="paramname">interactive</td><td>Флаг интерактивного режима </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -182,6 +198,16 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Создает команду на основе входных данных </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cmd</td><td>Имя команды </td></tr>
+    <tr><td class="paramname">iss</td><td>Поток ввода с аргументами команды </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Указатель на созданную команду или nullptr если команда не распознана </dd></dl>
 
 </div>
 </div>

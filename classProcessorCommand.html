@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('classProcessorCommand.html',''); initR
 </div><!--header-->
 <div class="contents">
 
-<p>������� ����� ��� ������, ���������� � ������������  
+<p>Базовый класс для команд, работающих с процессорами  
  <a href="classProcessorCommand.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="ProcessorCommands_8h_source.html">ProcessorCommands.h</a>&gt;</code></p>
@@ -112,18 +112,18 @@ Inheritance diagram for ProcessorCommand:</div>
 <div class="dyncontent">
 <div class="center"><img src="classProcessorCommand__inherit__graph.png" border="0" usemap="#aProcessorCommand_inherit__map" alt="Inheritance graph"/></div>
 <map name="aProcessorCommand_inherit__map" id="aProcessorCommand_inherit__map">
-<area shape="rect" title="Áàçîâûé êëàññ äëÿ êîìàíä, ðàáîòàþùèõ ñ ïðîöåññîðàìè" alt="" coords="339,79,491,104"/>
-<area shape="rect" href="classConnectCommand.html" title="Êîíêðåòíûå êîìàíäû" alt="" coords="5,152,148,177"/>
+<area shape="rect" title="Базовый класс для команд, работающих с процессорами" alt="" coords="339,79,491,104"/>
+<area shape="rect" href="classConnectCommand.html" title="Команда создания нового процессора" alt="" coords="5,152,148,177"/>
 <area shape="poly" title=" " alt="" coords="348,109,132,155,131,149,347,104"/>
-<area shape="rect" href="classDisconnectCommand.html" title=" " alt="" coords="172,152,333,177"/>
+<area shape="rect" href="classDisconnectCommand.html" title="Команда отключения процессора" alt="" coords="172,152,333,177"/>
 <area shape="poly" title=" " alt="" coords="378,112,280,154,278,149,376,107"/>
-<area shape="rect" href="classExitCommand.html" title=" " alt="" coords="358,152,473,177"/>
+<area shape="rect" href="classExitCommand.html" title="Команда выхода из программы" alt="" coords="358,152,473,177"/>
 <area shape="poly" title=" " alt="" coords="418,118,418,152,413,152,413,118"/>
-<area shape="rect" href="classListCommand.html" title=" " alt="" coords="497,152,609,177"/>
+<area shape="rect" href="classListCommand.html" title="Команда вывода списка активных процессоров" alt="" coords="497,152,609,177"/>
 <area shape="poly" title=" " alt="" coords="451,108,531,149,529,154,448,113"/>
-<area shape="rect" href="classReceiveCommand.html" title=" " alt="" coords="633,152,774,177"/>
+<area shape="rect" href="classReceiveCommand.html" title="Команда отправки данных процессору" alt="" coords="633,152,774,177"/>
 <area shape="poly" title=" " alt="" coords="475,105,657,149,656,154,474,110"/>
-<area shape="rect" href="classICommand.html" title=" " alt="" coords="369,5,462,31"/>
+<area shape="rect" href="classICommand.html" title="Базовый интерфейс команды" alt="" coords="369,5,462,31"/>
 <area shape="poly" title=" " alt="" coords="418,44,418,79,413,79,413,44"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
@@ -132,10 +132,10 @@ Collaboration diagram for ProcessorCommand:</div>
 <div class="dyncontent">
 <div class="center"><img src="classProcessorCommand__coll__graph.png" border="0" usemap="#aProcessorCommand_coll__map" alt="Collaboration graph"/></div>
 <map name="aProcessorCommand_coll__map" id="aProcessorCommand_coll__map">
-<area shape="rect" title="Áàçîâûé êëàññ äëÿ êîìàíä, ðàáîòàþùèõ ñ ïðîöåññîðàìè" alt="" coords="47,93,199,119"/>
-<area shape="rect" href="classICommand.html" title=" " alt="" coords="5,5,99,31"/>
+<area shape="rect" title="Базовый класс для команд, работающих с процессорами" alt="" coords="47,93,199,119"/>
+<area shape="rect" href="classICommand.html" title="Базовый интерфейс команды" alt="" coords="5,5,99,31"/>
 <area shape="poly" title=" " alt="" coords="72,39,115,91,111,94,68,43"/>
-<area shape="rect" href="classProcessorManager.html" title="Êëàññ äëÿ óïðàâëåíèÿ ïðîöåññîðàìè" alt="" coords="123,5,266,31"/>
+<area shape="rect" href="classProcessorManager.html" title="Менеджер для управления процессорами команд" alt="" coords="123,5,266,31"/>
 <area shape="poly" title=" " alt="" coords="178,43,135,95,131,91,174,39"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
@@ -143,26 +143,33 @@ Collaboration diagram for ProcessorCommand:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6f1cc6815b7631167cd5b0ee747f2ece" id="r_a6f1cc6815b7631167cd5b0ee747f2ece"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessorCommand.html#a6f1cc6815b7631167cd5b0ee747f2ece">ProcessorCommand</a> (<a class="el" href="classProcessorManager.html">ProcessorManager</a> &amp;mgr, std::istringstream &amp;input, bool <a class="el" href="classProcessorCommand.html#a228e1ffde84172f52622669b92e1a670">interactive</a>)</td></tr>
+<tr class="memdesc:a6f1cc6815b7631167cd5b0ee747f2ece"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор базовой команды процессора  <br /></td></tr>
 <tr class="separator:a6f1cc6815b7631167cd5b0ee747f2ece"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e64c8f2ac959da2c7f3bfea5fd36755" id="r_a6e64c8f2ac959da2c7f3bfea5fd36755"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessorCommand.html#a6e64c8f2ac959da2c7f3bfea5fd36755">logError</a> (const std::string_view message) const</td></tr>
+<tr class="memdesc:a6e64c8f2ac959da2c7f3bfea5fd36755"><td class="mdescLeft">&#160;</td><td class="mdescRight">Логирует ошибку в интерактивном режиме  <br /></td></tr>
 <tr class="separator:a6e64c8f2ac959da2c7f3bfea5fd36755"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classICommand"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classICommand')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classICommand.html">ICommand</a></td></tr>
 <tr class="memitem:aa8a6346c5a0dcfe7fd49413a69e854ef inherit pub_methods_classICommand" id="r_aa8a6346c5a0dcfe7fd49413a69e854ef"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classICommand.html#aa8a6346c5a0dcfe7fd49413a69e854ef">~ICommand</a> ()=default</td></tr>
 <tr class="separator:aa8a6346c5a0dcfe7fd49413a69e854ef inherit pub_methods_classICommand"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace81beb0beea968f876f292446bf1120 inherit pub_methods_classICommand" id="r_ace81beb0beea968f876f292446bf1120"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classICommand.html#ace81beb0beea968f876f292446bf1120">execute</a> ()=0</td></tr>
+<tr class="memdesc:ace81beb0beea968f876f292446bf1120 inherit pub_methods_classICommand"><td class="mdescLeft">&#160;</td><td class="mdescRight">Выполняет команду  <br /></td></tr>
 <tr class="separator:ace81beb0beea968f876f292446bf1120 inherit pub_methods_classICommand"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a9e3bd0c58349cf6038fdff98907c9775" id="r_a9e3bd0c58349cf6038fdff98907c9775"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classProcessorManager.html">ProcessorManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessorCommand.html#a9e3bd0c58349cf6038fdff98907c9775">manager</a></td></tr>
+<tr class="memdesc:a9e3bd0c58349cf6038fdff98907c9775"><td class="mdescLeft">&#160;</td><td class="mdescRight">Менеджер процессоров  <br /></td></tr>
 <tr class="separator:a9e3bd0c58349cf6038fdff98907c9775"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0085cd0cdc7434837633e327bdfdc8b" id="r_af0085cd0cdc7434837633e327bdfdc8b"><td class="memItemLeft" align="right" valign="top">std::istringstream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessorCommand.html#af0085cd0cdc7434837633e327bdfdc8b">iss</a></td></tr>
+<tr class="memdesc:af0085cd0cdc7434837633e327bdfdc8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Поток ввода для чтения аргументов команды  <br /></td></tr>
 <tr class="separator:af0085cd0cdc7434837633e327bdfdc8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a228e1ffde84172f52622669b92e1a670" id="r_a228e1ffde84172f52622669b92e1a670"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessorCommand.html#a228e1ffde84172f52622669b92e1a670">interactive</a></td></tr>
+<tr class="memdesc:a228e1ffde84172f52622669b92e1a670"><td class="mdescLeft">&#160;</td><td class="mdescRight">Флаг интерактивного режима  <br /></td></tr>
 <tr class="separator:a228e1ffde84172f52622669b92e1a670"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>������� ����� ��� ������, ���������� � ������������ </p>
+<div class="textblock"><p>Базовый класс для команд, работающих с процессорами </p>
+<p>Предоставляет общий функционал для команд, взаимодействующих с <a class="el" href="classProcessorManager.html" title="Менеджер для управления процессорами команд">ProcessorManager</a> </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6f1cc6815b7631167cd5b0ee747f2ece" name="a6f1cc6815b7631167cd5b0ee747f2ece"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6f1cc6815b7631167cd5b0ee747f2ece">&#9670;&#160;</a></span>ProcessorCommand()</h2>
@@ -204,6 +211,16 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Конструктор базовой команды процессора </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mgr</td><td>Ссылка на менеджер процессоров </td></tr>
+    <tr><td class="paramname">input</td><td>Поток ввода для чтения аргументов </td></tr>
+    <tr><td class="paramname">interactive</td><td>Флаг интерактивного режима </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -231,6 +248,14 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Логирует ошибку в интерактивном режиме </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>Текст сообщения об ошибке </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -246,6 +271,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Флаг интерактивного режима </p>
+
 </div>
 </div>
 <a id="af0085cd0cdc7434837633e327bdfdc8b" name="af0085cd0cdc7434837633e327bdfdc8b"></a>
@@ -260,6 +287,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Поток ввода для чтения аргументов команды </p>
+
 </div>
 </div>
 <a id="a9e3bd0c58349cf6038fdff98907c9775" name="a9e3bd0c58349cf6038fdff98907c9775"></a>
@@ -273,6 +302,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Менеджер процессоров </p>
 
 </div>
 </div>
