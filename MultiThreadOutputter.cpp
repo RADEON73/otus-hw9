@@ -34,7 +34,7 @@ void MultiThreadOutputter::log_worker(std::stop_token stoken) {
 		if (log_queue.try_pop(item))
 			process_log_item(item);
 		else
-			std::this_thread::sleep_for(std::chrono::milliseconds(10)); // Опционально: снижаем нагрузку на CPU
+			std::this_thread::yield();
 	}
 	while (log_queue.try_pop(item))
 		process_log_item(item);
@@ -89,15 +89,9 @@ void MultiThreadOutputter::file_worker(int id, std::stop_token stoken) {
 		if (file_queue.try_pop(item)) {
 			process_file_item(id, item, gen, dis);
 		}
-		else if (log_queue.size() > 100) { // Балансировка нагрузки: если log_queue переполнен, то помогаем с обработкой
-			if (log_queue.try_pop(item))
-				process_log_item(item);
-		}
 		else
 			std::this_thread::yield();
 	}
-
-	while (file_queue.try_pop(item)) {
+	while (file_queue.try_pop(item))
 		process_file_item(id, item, gen, dis);
-	}
 }
