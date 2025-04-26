@@ -4,6 +4,7 @@ var annotated_dup =
     [ "BulkProcessor", "classBulkProcessor.html", "classBulkProcessor" ],
     [ "CommandFactory", "classCommandFactory.html", "classCommandFactory" ],
     [ "ConnectCommand", "classConnectCommand.html", "classConnectCommand" ],
+    [ "DataCommand", "classDataCommand.html", "classDataCommand" ],
     [ "DisconnectCommand", "classDisconnectCommand.html", "classDisconnectCommand" ],
     [ "EndBlockCommand", "classEndBlockCommand.html", "classEndBlockCommand" ],
     [ "ExitCommand", "classExitCommand.html", "classExitCommand" ],

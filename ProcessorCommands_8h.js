@@ -4,6 +4,7 @@ var ProcessorCommands_8h =
     [ "ProcessorCommand", "classProcessorCommand.html", "classProcessorCommand" ],
     [ "ConnectCommand", "classConnectCommand.html", "classConnectCommand" ],
     [ "ReceiveCommand", "classReceiveCommand.html", "classReceiveCommand" ],
+    [ "DataCommand", "classDataCommand.html", "classDataCommand" ],
     [ "DisconnectCommand", "classDisconnectCommand.html", "classDisconnectCommand" ],
     [ "ListCommand", "classListCommand.html", "classListCommand" ],
     [ "HelpCommand", "classHelpCommand.html", "classHelpCommand" ],

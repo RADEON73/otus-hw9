@@ -1,15 +1,17 @@
 <map id="ProcessorCommand" name="ProcessorCommand">
-<area shape="rect" id="Node000001" title="Базовый класс для команд, работающих с процессорами" alt="" coords="339,79,491,104"/>
+<area shape="rect" id="Node000001" title="Базовый класс для команд, работающих с процессорами" alt="" coords="403,79,555,104"/>
 <area shape="rect" id="Node000003" href="$classConnectCommand.html" title="Команда создания нового процессора" alt="" coords="5,152,148,177"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="348,109,132,155,131,149,347,104"/>
-<area shape="rect" id="Node000004" href="$classDisconnectCommand.html" title="Команда отключения процессора" alt="" coords="172,152,333,177"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="378,112,280,154,278,149,376,107"/>
-<area shape="rect" id="Node000005" href="$classExitCommand.html" title="Команда выхода из программы" alt="" coords="358,152,473,177"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="418,118,418,152,413,152,413,118"/>
-<area shape="rect" id="Node000006" href="$classListCommand.html" title="Команда вывода списка активных процессоров" alt="" coords="497,152,609,177"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="451,108,531,149,529,154,448,113"/>
-<area shape="rect" id="Node000007" href="$classReceiveCommand.html" title="Команда отправки данных процессору" alt="" coords="633,152,774,177"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="475,105,657,149,656,154,474,110"/>
-<area shape="rect" id="Node000002" href="$classICommand.html" title="Базовый интерфейс команды" alt="" coords="369,5,462,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="418,44,418,79,413,79,413,44"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="402,109,142,155,141,149,401,104"/>
+<area shape="rect" id="Node000004" href="$classDataCommand.html" title="Команда для версии V2 &#45; просто поток данных" alt="" coords="173,152,293,177"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="427,110,273,154,272,149,426,105"/>
+<area shape="rect" id="Node000005" href="$classDisconnectCommand.html" title="Команда отключения процессора" alt="" coords="317,152,479,177"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="458,115,413,154,410,150,454,111"/>
+<area shape="rect" id="Node000006" href="$classExitCommand.html" title="Команда выхода из программы" alt="" coords="503,152,618,177"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="504,111,549,150,546,154,501,115"/>
+<area shape="rect" id="Node000007" href="$classListCommand.html" title="Команда вывода списка активных процессоров" alt="" coords="642,152,754,177"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="528,106,663,149,662,154,527,111"/>
+<area shape="rect" id="Node000008" href="$classReceiveCommand.html" title="Команда отправки данных процессору" alt="" coords="778,152,919,177"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="553,104,789,149,788,155,552,109"/>
+<area shape="rect" id="Node000002" href="$classICommand.html" title="Базовый интерфейс команды" alt="" coords="433,5,526,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="482,44,482,79,477,79,477,44"/>
 </map>

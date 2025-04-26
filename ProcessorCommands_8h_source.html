@@ -204,182 +204,212 @@ $(document).ready(function(){initNavTree('ProcessorCommands_8h_source.html','');
 </div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
 <div class="foldopen" id="foldopen00110" data-start="{" data-end="};">
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="classDisconnectCommand.html">  110</a></span><span class="keyword">class </span><a class="code hl_class" href="classDisconnectCommand.html">DisconnectCommand</a> : <span class="keyword">public</span> <a class="code hl_class" href="classProcessorCommand.html">ProcessorCommand</a></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="classDataCommand.html">  110</a></span><span class="keyword">class </span><a class="code hl_class" href="classDataCommand.html">DataCommand</a> : <span class="keyword">public</span> <a class="code hl_class" href="classProcessorCommand.html">ProcessorCommand</a></div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>{</div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keyword">using </span><a class="code hl_function" href="classProcessorCommand.html#a6f1cc6815b7631167cd5b0ee747f2ece">ProcessorCommand::ProcessorCommand</a>;</div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
 <div class="foldopen" id="foldopen00118" data-start="{" data-end="}">
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="classDisconnectCommand.html#a43cc67de69b25f7f52b49caff827c9f3">  118</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classDisconnectCommand.html#a43cc67de69b25f7f52b49caff827c9f3">execute</a>()<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        <span class="keywordtype">int</span> id;</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classProcessorCommand.html#af0085cd0cdc7434837633e327bdfdc8b">iss</a> &gt;&gt; <span class="keywordtype">id</span>) {</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>            <a class="code hl_typedef" href="namespaceasync.html#a3cfc5985760e4b6b3474a3a06e934d94">async::HANDLE</a> target = <a class="code hl_variable" href="classProcessorCommand.html#a9e3bd0c58349cf6038fdff98907c9775">manager</a>.<a class="code hl_function" href="classProcessorManager.html#ad474ef46876e402c56a0071ba3cd3745">getProcessor</a>(<span class="keywordtype">id</span>);</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>            <span class="keywordflow">if</span> (target) {</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>                <a class="code hl_function" href="namespaceasync.html#a73123dcf78c8e8a37526f43d7566b2ea">async::disconnect</a>(target);</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>                <a class="code hl_variable" href="classProcessorCommand.html#a9e3bd0c58349cf6038fdff98907c9775">manager</a>.<a class="code hl_function" href="classProcessorManager.html#a92866336e564443155d91dfdf0b1d6c0">removeProcessor</a>(<span class="keywordtype">id</span>);</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>            }</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>                <a class="code hl_function" href="classProcessorCommand.html#a6e64c8f2ac959da2c7f3bfea5fd36755">logError</a>(<span class="stringliteral">&quot;Error: processor not found&quot;</span>);</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        }</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>            <a class="code hl_function" href="classProcessorCommand.html#a6e64c8f2ac959da2c7f3bfea5fd36755">logError</a>(<span class="stringliteral">&quot;Error: missing processor ID&quot;</span>);</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    }</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="classDataCommand.html#a39472ccbf3a99b884aa15e9905e68962">  118</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classDataCommand.html#a39472ccbf3a99b884aa15e9905e68962">execute</a>()<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        std::string data = <a class="code hl_variable" href="classProcessorCommand.html#af0085cd0cdc7434837633e327bdfdc8b">iss</a>.str();</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <span class="keywordtype">size_t</span> pos = 0;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        <a class="code hl_typedef" href="namespaceasync.html#a3cfc5985760e4b6b3474a3a06e934d94">async::HANDLE</a> target = <a class="code hl_variable" href="classProcessorCommand.html#a9e3bd0c58349cf6038fdff98907c9775">manager</a>.<a class="code hl_function" href="classProcessorManager.html#a56da246c3e4b638b6b7b06ed3b961b26">getFirstProcessor</a>();</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        <span class="keywordflow">if</span> (target &amp;&amp; !data.empty()) {</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>            <span class="keywordflow">while</span> ((pos = data.find(<span class="stringliteral">&quot;\\n&quot;</span>, pos)) != std::string::npos) {</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>                data.replace(pos, 2, <span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>                pos += 1;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>            }</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>            data.erase(0, data.find_first_not_of(<span class="stringliteral">&quot; \t&quot;</span>));</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>            <a class="code hl_function" href="namespaceasync.html#aa9c679d89091c2ae453ca2b7dcbe0853">async::receive</a>(target, data.data(), data.size());</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        }</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>            <a class="code hl_function" href="classProcessorCommand.html#a6e64c8f2ac959da2c7f3bfea5fd36755">logError</a>(<span class="stringliteral">&quot;Error: no available processors or empty data&quot;</span>);</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        }</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    }</div>
 </div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>};</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>};</div>
 </div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
-<div class="foldopen" id="foldopen00135" data-start="{" data-end="};">
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="classListCommand.html">  135</a></span><span class="keyword">class </span><a class="code hl_class" href="classListCommand.html">ListCommand</a> : <span class="keyword">public</span> <a class="code hl_class" href="classProcessorCommand.html">ProcessorCommand</a></div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>{</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="keyword">using </span><a class="code hl_function" href="classProcessorCommand.html#a6f1cc6815b7631167cd5b0ee747f2ece">ProcessorCommand::ProcessorCommand</a>;</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
-<div class="foldopen" id="foldopen00142" data-start="{" data-end="}">
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="classListCommand.html#a48f471fa9f4cd131f9fdee22e85cf110">  142</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classListCommand.html#a48f471fa9f4cd131f9fdee22e85cf110">execute</a>()<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classProcessorCommand.html#a228e1ffde84172f52622669b92e1a670">interactive</a>)</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>            <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classProcessorCommand.html#a9e3bd0c58349cf6038fdff98907c9775">manager</a>.<a class="code hl_function" href="classProcessorManager.html#a033f32c5ca2800526a6e1d2b7302bedc">empty</a>()) {</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>            std::cout &lt;&lt; <span class="stringliteral">&quot;No active processors\n&quot;</span>;</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        }</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>            std::cout &lt;&lt; <span class="stringliteral">&quot;Active processors:\n&quot;</span>;</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>            <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; [h, <span class="keywordtype">id</span>] : <a class="code hl_variable" href="classProcessorCommand.html#a9e3bd0c58349cf6038fdff98907c9775">manager</a>.<a class="code hl_function" href="classProcessorManager.html#abbc561299cbe4e34b9a2b14244735a5d">getAllProcessors</a>()) {</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>                std::cout &lt;&lt; <span class="stringliteral">&quot;  #&quot;</span> &lt;&lt; <span class="keywordtype">id</span> &lt;&lt; <span class="stringliteral">&quot; (handle: &quot;</span> &lt;&lt; h &lt;&lt; <span class="stringliteral">&quot;)\n&quot;</span>;</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>            }</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        }</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    }</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="foldopen" id="foldopen00137" data-start="{" data-end="};">
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="classDisconnectCommand.html">  137</a></span><span class="keyword">class </span><a class="code hl_class" href="classDisconnectCommand.html">DisconnectCommand</a> : <span class="keyword">public</span> <a class="code hl_class" href="classProcessorCommand.html">ProcessorCommand</a></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>{</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    <span class="keyword">using </span><a class="code hl_function" href="classProcessorCommand.html#a6f1cc6815b7631167cd5b0ee747f2ece">ProcessorCommand::ProcessorCommand</a>;</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="foldopen" id="foldopen00145" data-start="{" data-end="}">
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="classDisconnectCommand.html#a43cc67de69b25f7f52b49caff827c9f3">  145</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classDisconnectCommand.html#a43cc67de69b25f7f52b49caff827c9f3">execute</a>()<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        <span class="keywordtype">int</span> id;</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classProcessorCommand.html#af0085cd0cdc7434837633e327bdfdc8b">iss</a> &gt;&gt; <span class="keywordtype">id</span>) {</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>            <a class="code hl_typedef" href="namespaceasync.html#a3cfc5985760e4b6b3474a3a06e934d94">async::HANDLE</a> target = <a class="code hl_variable" href="classProcessorCommand.html#a9e3bd0c58349cf6038fdff98907c9775">manager</a>.<a class="code hl_function" href="classProcessorManager.html#ad474ef46876e402c56a0071ba3cd3745">getProcessor</a>(<span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>            <span class="keywordflow">if</span> (target) {</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>                <a class="code hl_function" href="namespaceasync.html#a73123dcf78c8e8a37526f43d7566b2ea">async::disconnect</a>(target);</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>                <a class="code hl_variable" href="classProcessorCommand.html#a9e3bd0c58349cf6038fdff98907c9775">manager</a>.<a class="code hl_function" href="classProcessorManager.html#a92866336e564443155d91dfdf0b1d6c0">removeProcessor</a>(<span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>            }</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>                <a class="code hl_function" href="classProcessorCommand.html#a6e64c8f2ac959da2c7f3bfea5fd36755">logError</a>(<span class="stringliteral">&quot;Error: processor not found&quot;</span>);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>        }</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>            <a class="code hl_function" href="classProcessorCommand.html#a6e64c8f2ac959da2c7f3bfea5fd36755">logError</a>(<span class="stringliteral">&quot;Error: missing processor ID&quot;</span>);</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    }</div>
 </div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>};</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>};</div>
 </div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
-<div class="foldopen" id="foldopen00159" data-start="{" data-end="};">
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno"><a class="line" href="classHelpCommand.html">  159</a></span><span class="keyword">class </span><a class="code hl_class" href="classHelpCommand.html">HelpCommand</a> : <span class="keyword">public</span> <a class="code hl_class" href="classICommand.html">ICommand</a></div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>{</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    <span class="keywordtype">bool</span> interactive; </div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno"><a class="line" href="classHelpCommand.html#a021a9e33b0e65b75a101c4bbdad96dff">  166</a></span>    <span class="keyword">explicit</span> <a class="code hl_function" href="classHelpCommand.html#a021a9e33b0e65b75a101c4bbdad96dff">HelpCommand</a>(<span class="keywordtype">bool</span> interactive) : interactive(interactive) {}</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="foldopen" id="foldopen00162" data-start="{" data-end="};">
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno"><a class="line" href="classListCommand.html">  162</a></span><span class="keyword">class </span><a class="code hl_class" href="classListCommand.html">ListCommand</a> : <span class="keyword">public</span> <a class="code hl_class" href="classProcessorCommand.html">ProcessorCommand</a></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>{</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    <span class="keyword">using </span><a class="code hl_function" href="classProcessorCommand.html#a6f1cc6815b7631167cd5b0ee747f2ece">ProcessorCommand::ProcessorCommand</a>;</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
 <div class="foldopen" id="foldopen00169" data-start="{" data-end="}">
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno"><a class="line" href="classHelpCommand.html#ae937e50237b12328bfbd4526caf7f47e">  169</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classHelpCommand.html#ae937e50237b12328bfbd4526caf7f47e">execute</a>()<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        <span class="keywordflow">if</span> (interactive)</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>            print_help();</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    }</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno"><a class="line" href="classListCommand.html#a48f471fa9f4cd131f9fdee22e85cf110">  169</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classListCommand.html#a48f471fa9f4cd131f9fdee22e85cf110">execute</a>()<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classProcessorCommand.html#a228e1ffde84172f52622669b92e1a670">interactive</a>)</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>            <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classProcessorCommand.html#a9e3bd0c58349cf6038fdff98907c9775">manager</a>.<a class="code hl_function" href="classProcessorManager.html#a033f32c5ca2800526a6e1d2b7302bedc">empty</a>()) {</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>            std::cout &lt;&lt; <span class="stringliteral">&quot;No active processors\n&quot;</span>;</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        }</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>            std::cout &lt;&lt; <span class="stringliteral">&quot;Active processors:\n&quot;</span>;</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>            <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; [h, <span class="keywordtype">id</span>] : <a class="code hl_variable" href="classProcessorCommand.html#a9e3bd0c58349cf6038fdff98907c9775">manager</a>.<a class="code hl_function" href="classProcessorManager.html#abbc561299cbe4e34b9a2b14244735a5d">getAllProcessors</a>()) {</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>                std::cout &lt;&lt; <span class="stringliteral">&quot;  #&quot;</span> &lt;&lt; <span class="keywordtype">id</span> &lt;&lt; <span class="stringliteral">&quot; (handle: &quot;</span> &lt;&lt; h &lt;&lt; <span class="stringliteral">&quot;)\n&quot;</span>;</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>            }</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        }</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    }</div>
 </div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>};</div>
-</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
-<div class="foldopen" id="foldopen00176" data-start="{" data-end="};">
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno"><a class="line" href="classExitCommand.html">  176</a></span><span class="keyword">class </span><a class="code hl_class" href="classExitCommand.html">ExitCommand</a> : <span class="keyword">public</span> <a class="code hl_class" href="classProcessorCommand.html">ProcessorCommand</a></div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>{</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    <span class="keyword">using </span><a class="code hl_function" href="classProcessorCommand.html#a6f1cc6815b7631167cd5b0ee747f2ece">ProcessorCommand::ProcessorCommand</a>;</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno"><a class="line" href="classExitCommand.html#a9dc6a444c5c4eaa2202b3f378755d70b">  182</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classExitCommand.html#a9dc6a444c5c4eaa2202b3f378755d70b">execute</a>()<span class="keyword"> override </span>{ <a class="code hl_variable" href="classProcessorCommand.html#a9e3bd0c58349cf6038fdff98907c9775">manager</a>.<a class="code hl_function" href="classProcessorManager.html#a21274cb9186fc5e3afb947fb2f9144dd">closeRequest</a>(); }</div>
 <div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>};</div>
 </div>
 <div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
 <div class="foldopen" id="foldopen00186" data-start="{" data-end="};">
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno"><a class="line" href="classCommandFactory.html">  186</a></span><span class="keyword">class </span><a class="code hl_class" href="classCommandFactory.html">CommandFactory</a></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno"><a class="line" href="classHelpCommand.html">  186</a></span><span class="keyword">class </span><a class="code hl_class" href="classHelpCommand.html">HelpCommand</a> : <span class="keyword">public</span> <a class="code hl_class" href="classICommand.html">ICommand</a></div>
 <div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>{</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    <a class="code hl_class" href="classProcessorManager.html">ProcessorManager</a>&amp; manager; </div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    <span class="keywordtype">bool</span> interactive;          </div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    <span class="keywordtype">bool</span> interactive; </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno"><a class="line" href="classHelpCommand.html#a021a9e33b0e65b75a101c4bbdad96dff">  193</a></span>    <span class="keyword">explicit</span> <a class="code hl_function" href="classHelpCommand.html#a021a9e33b0e65b75a101c4bbdad96dff">HelpCommand</a>(<span class="keywordtype">bool</span> interactive) : interactive(interactive) {}</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
 <div class="foldopen" id="foldopen00196" data-start="{" data-end="}">
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno"><a class="line" href="classCommandFactory.html#a13e80399872df8a82dedb050a15399cf">  196</a></span>    <a class="code hl_function" href="classCommandFactory.html#a13e80399872df8a82dedb050a15399cf">CommandFactory</a>(<a class="code hl_class" href="classProcessorManager.html">ProcessorManager</a>&amp; mgr, <span class="keywordtype">bool</span> interactive)</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>        : manager(mgr), interactive(interactive) {</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    }</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno"><a class="line" href="classHelpCommand.html#ae937e50237b12328bfbd4526caf7f47e">  196</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classHelpCommand.html#ae937e50237b12328bfbd4526caf7f47e">execute</a>()<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>        <span class="keywordflow">if</span> (interactive)</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>            print_help();</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    }</div>
 </div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
-<div class="foldopen" id="foldopen00204" data-start="{" data-end="}">
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno"><a class="line" href="classCommandFactory.html#ae99a1a0a9c050fb92d7bf84924aa8a05">  204</a></span>    std::unique_ptr&lt;ICommand&gt; <a class="code hl_function" href="classCommandFactory.html#ae99a1a0a9c050fb92d7bf84924aa8a05">createCommand</a>(<span class="keyword">const</span> std::string&amp; cmd, std::istringstream&amp; iss) {</div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>        <span class="keywordflow">if</span> (cmd.empty() || cmd[0] == <span class="charliteral">&#39;#&#39;</span>) {</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>            <span class="keywordflow">return</span> <span class="keyword">nullptr</span>; <span class="comment">// Пропускаем пустые строки и комментарии</span></div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        }</div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span> </div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>        <span class="keywordflow">try</span> {</div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>            <span class="keywordflow">if</span> (cmd == <span class="stringliteral">&quot;connect&quot;</span>) {</div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>                <span class="keywordflow">return</span> std::make_unique&lt;ConnectCommand&gt;(manager, iss, interactive);</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>            }</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (cmd == <span class="stringliteral">&quot;receive&quot;</span>) {</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>                <span class="keywordflow">return</span> std::make_unique&lt;ReceiveCommand&gt;(manager, iss, interactive);</div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>            }</div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (cmd == <span class="stringliteral">&quot;disconnect&quot;</span>) {</div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>                <span class="keywordflow">return</span> std::make_unique&lt;DisconnectCommand&gt;(manager, iss, interactive);</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>            }</div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (cmd == <span class="stringliteral">&quot;list&quot;</span>) {</div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>                <span class="keywordflow">return</span> std::make_unique&lt;ListCommand&gt;(manager, iss, interactive);</div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>            }</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (cmd == <span class="stringliteral">&quot;help&quot;</span>) {</div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>                <span class="keywordflow">return</span> std::make_unique&lt;HelpCommand&gt;(interactive);</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>            }</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (cmd == <span class="stringliteral">&quot;exit&quot;</span>) {</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>                <span class="keywordflow">return</span> std::make_unique&lt;ExitCommand&gt;(manager, iss, interactive);</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>            }</div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>                <span class="keywordflow">if</span> (interactive) {</div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Error: unknown command. Type &#39;help&#39; for available commands.\n&quot;</span>;</div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>                }</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        }</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>        <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp; e) {</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>            <span class="keywordflow">if</span> (interactive) {</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>                std::cerr &lt;&lt; <span class="stringliteral">&quot;Command error: &quot;</span> &lt;&lt; e.what() &lt;&lt; std::endl;</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>            }</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>            <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>        }</div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>        <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    }</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>};</div>
 </div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>};</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
+<div class="foldopen" id="foldopen00203" data-start="{" data-end="};">
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno"><a class="line" href="classExitCommand.html">  203</a></span><span class="keyword">class </span><a class="code hl_class" href="classExitCommand.html">ExitCommand</a> : <span class="keyword">public</span> <a class="code hl_class" href="classProcessorCommand.html">ProcessorCommand</a></div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>{</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    <span class="keyword">using </span><a class="code hl_function" href="classProcessorCommand.html#a6f1cc6815b7631167cd5b0ee747f2ece">ProcessorCommand::ProcessorCommand</a>;</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno"><a class="line" href="classExitCommand.html#a9dc6a444c5c4eaa2202b3f378755d70b">  209</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classExitCommand.html#a9dc6a444c5c4eaa2202b3f378755d70b">execute</a>()<span class="keyword"> override </span>{ <a class="code hl_variable" href="classProcessorCommand.html#a9e3bd0c58349cf6038fdff98907c9775">manager</a>.<a class="code hl_function" href="classProcessorManager.html#a21274cb9186fc5e3afb947fb2f9144dd">closeRequest</a>(); }</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>};</div>
 </div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
-<div class="foldopen" id="foldopen00246" data-start="{" data-end="}">
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno"><a class="line" href="ProcessorCommands_8h.html#a961c2ba040f3f6f90a39c4619cdc4bbb">  246</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="ProcessorCommands_8h.html#a961c2ba040f3f6f90a39c4619cdc4bbb">process_commands_from_stream</a>(std::istream&amp; input, <span class="keywordtype">bool</span> interactive = <span class="keyword">true</span>) {</div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    <a class="code hl_class" href="classProcessorManager.html">ProcessorManager</a> manager;</div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    <a class="code hl_class" href="classCommandFactory.html">CommandFactory</a> factory(manager, interactive);</div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span> </div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    <span class="keywordflow">if</span> (interactive) {</div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;Interactive bulk command processor\n&quot;</span>;</div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>        print_help();</div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    }</div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    std::string line;</div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    <span class="keywordflow">while</span> (getline(input, line)) {</div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>        std::istringstream iss(line);</div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>        std::string cmd;</div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>        iss &gt;&gt; cmd;</div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        <span class="keywordflow">if</span> (<span class="keyword">auto</span> command = factory.<a class="code hl_function" href="classCommandFactory.html#ae99a1a0a9c050fb92d7bf84924aa8a05">createCommand</a>(cmd, iss))</div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>            command-&gt;execute();</div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>        <span class="keywordflow">if</span> (manager.<a class="code hl_function" href="classProcessorManager.html#a2d5e5c6b07b5099f25767e8e3061029d">isCloseRequested</a>())</div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>    }</div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; [h, <span class="keywordtype">id</span>] : manager.<a class="code hl_function" href="classProcessorManager.html#abbc561299cbe4e34b9a2b14244735a5d">getAllProcessors</a>())</div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>        <a class="code hl_function" href="namespaceasync.html#a73123dcf78c8e8a37526f43d7566b2ea">async::disconnect</a>(h);</div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>}</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
+<div class="foldopen" id="foldopen00213" data-start="{" data-end="};">
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno"><a class="line" href="classCommandFactory.html">  213</a></span><span class="keyword">class </span><a class="code hl_class" href="classCommandFactory.html">CommandFactory</a></div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>{</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    <a class="code hl_class" href="classProcessorManager.html">ProcessorManager</a>&amp; manager; </div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    <span class="keywordtype">bool</span> interactive{ <span class="keyword">true</span> };          </div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00223" data-start="{" data-end="}">
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno"><a class="line" href="classCommandFactory.html#a13e80399872df8a82dedb050a15399cf">  223</a></span>    <a class="code hl_function" href="classCommandFactory.html#a13e80399872df8a82dedb050a15399cf">CommandFactory</a>(<a class="code hl_class" href="classProcessorManager.html">ProcessorManager</a>&amp; mgr, <span class="keywordtype">bool</span> interactive)</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>        : manager(mgr), interactive(interactive) {</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    }</div>
 </div>
-<div class="ttc" id="aProcessorCommands_8h_html_a961c2ba040f3f6f90a39c4619cdc4bbb"><div class="ttname"><a href="ProcessorCommands_8h.html#a961c2ba040f3f6f90a39c4619cdc4bbb">process_commands_from_stream</a></div><div class="ttdeci">void process_commands_from_stream(std::istream &amp;input, bool interactive=true)</div><div class="ttdoc">Обрабатывает команды из входного потока</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:246</div></div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
+<div class="foldopen" id="foldopen00231" data-start="{" data-end="}">
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno"><a class="line" href="classCommandFactory.html#ae99a1a0a9c050fb92d7bf84924aa8a05">  231</a></span>    std::unique_ptr&lt;ICommand&gt; <a class="code hl_function" href="classCommandFactory.html#ae99a1a0a9c050fb92d7bf84924aa8a05">createCommand</a>(<span class="keyword">const</span> std::string&amp; cmd, std::istringstream&amp; iss) {</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        <span class="keywordflow">if</span> (cmd.empty() || cmd[0] == <span class="charliteral">&#39;#&#39;</span>) {</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>            <span class="keywordflow">return</span> <span class="keyword">nullptr</span>; <span class="comment">// Пропускаем пустые строки и комментарии</span></div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>        }</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span><span class="preprocessor">#ifdef V2_DEMO_PROJECT</span></div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        <span class="keywordflow">return</span> std::make_unique&lt;DataCommand&gt;(manager, iss, interactive);</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>        <span class="keywordflow">try</span> {</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>            <span class="keywordflow">if</span> (cmd == <span class="stringliteral">&quot;connect&quot;</span>) {</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>                <span class="keywordflow">return</span> std::make_unique&lt;ConnectCommand&gt;(manager, iss, interactive);</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>            }</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (cmd == <span class="stringliteral">&quot;receive&quot;</span>) {</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>                <span class="keywordflow">return</span> std::make_unique&lt;ReceiveCommand&gt;(manager, iss, interactive);</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>            }</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (cmd == <span class="stringliteral">&quot;disconnect&quot;</span>) {</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>                <span class="keywordflow">return</span> std::make_unique&lt;DisconnectCommand&gt;(manager, iss, interactive);</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>            }</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (cmd == <span class="stringliteral">&quot;list&quot;</span>) {</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>                <span class="keywordflow">return</span> std::make_unique&lt;ListCommand&gt;(manager, iss, interactive);</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>            }</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (cmd == <span class="stringliteral">&quot;help&quot;</span>) {</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>                <span class="keywordflow">return</span> std::make_unique&lt;HelpCommand&gt;(interactive);</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>            }</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (cmd == <span class="stringliteral">&quot;exit&quot;</span>) {</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>                <span class="keywordflow">return</span> std::make_unique&lt;ExitCommand&gt;(manager, iss, interactive);</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>            }</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (interactive)</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>                std::cerr &lt;&lt; <span class="stringliteral">&quot;Error: unknown command. Type &#39;help&#39; for available commands.\n&quot;</span>;</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>        }</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp; e) {</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>            <span class="keywordflow">if</span> (interactive) {</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>                std::cerr &lt;&lt; <span class="stringliteral">&quot;Command error: &quot;</span> &lt;&lt; e.what() &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>            }</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>            <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>        }</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>        <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>    }</div>
+</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>};</div>
+</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span> </div>
+<div class="foldopen" id="foldopen00274" data-start="{" data-end="}">
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno"><a class="line" href="ProcessorCommands_8h.html#a961c2ba040f3f6f90a39c4619cdc4bbb">  274</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="ProcessorCommands_8h.html#a961c2ba040f3f6f90a39c4619cdc4bbb">process_commands_from_stream</a>(std::istream&amp; input, <span class="keywordtype">bool</span> interactive = <span class="keyword">true</span>) {</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>    <a class="code hl_class" href="classProcessorManager.html">ProcessorManager</a> manager;</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>    <a class="code hl_class" href="classCommandFactory.html">CommandFactory</a> factory(manager, interactive);</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span> </div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    <span class="keywordflow">if</span> (interactive) {</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;Interactive bulk command processor\n&quot;</span>;</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>        print_help();</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>    }</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span> </div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>    std::string line;</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>    <span class="keywordflow">while</span> (getline(input, line)) {</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>        std::istringstream iss(line);</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>        std::string cmd;</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>        iss &gt;&gt; cmd;</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>        <span class="keywordflow">if</span> (<span class="keyword">auto</span> command = factory.<a class="code hl_function" href="classCommandFactory.html#ae99a1a0a9c050fb92d7bf84924aa8a05">createCommand</a>(cmd, iss))</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>            command-&gt;execute();</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>        <span class="keywordflow">if</span> (manager.<a class="code hl_function" href="classProcessorManager.html#a2d5e5c6b07b5099f25767e8e3061029d">isCloseRequested</a>())</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>    }</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; [h, <span class="keywordtype">id</span>] : manager.<a class="code hl_function" href="classProcessorManager.html#abbc561299cbe4e34b9a2b14244735a5d">getAllProcessors</a>())</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>        <a class="code hl_function" href="namespaceasync.html#a73123dcf78c8e8a37526f43d7566b2ea">async::disconnect</a>(h);</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>}</div>
+</div>
+<div class="ttc" id="aProcessorCommands_8h_html_a961c2ba040f3f6f90a39c4619cdc4bbb"><div class="ttname"><a href="ProcessorCommands_8h.html#a961c2ba040f3f6f90a39c4619cdc4bbb">process_commands_from_stream</a></div><div class="ttdeci">void process_commands_from_stream(std::istream &amp;input, bool interactive=true)</div><div class="ttdoc">Обрабатывает команды из входного потока</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:274</div></div>
 <div class="ttc" id="aProcessorManager_8h_html"><div class="ttname"><a href="ProcessorManager_8h.html">ProcessorManager.h</a></div></div>
 <div class="ttc" id="aasync_8h_html"><div class="ttname"><a href="async_8h.html">async.h</a></div><div class="ttdoc">Заголовочный файл асинхронного интерфейса</div></div>
-<div class="ttc" id="aclassCommandFactory_html"><div class="ttname"><a href="classCommandFactory.html">CommandFactory</a></div><div class="ttdoc">Фабрика создания команд</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:187</div></div>
-<div class="ttc" id="aclassCommandFactory_html_a13e80399872df8a82dedb050a15399cf"><div class="ttname"><a href="classCommandFactory.html#a13e80399872df8a82dedb050a15399cf">CommandFactory::CommandFactory</a></div><div class="ttdeci">CommandFactory(ProcessorManager &amp;mgr, bool interactive)</div><div class="ttdoc">Конструктор фабрики команд</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:196</div></div>
-<div class="ttc" id="aclassCommandFactory_html_ae99a1a0a9c050fb92d7bf84924aa8a05"><div class="ttname"><a href="classCommandFactory.html#ae99a1a0a9c050fb92d7bf84924aa8a05">CommandFactory::createCommand</a></div><div class="ttdeci">std::unique_ptr&lt; ICommand &gt; createCommand(const std::string &amp;cmd, std::istringstream &amp;iss)</div><div class="ttdoc">Создает команду на основе входных данных</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:204</div></div>
+<div class="ttc" id="aclassCommandFactory_html"><div class="ttname"><a href="classCommandFactory.html">CommandFactory</a></div><div class="ttdoc">Фабрика создания команд</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:214</div></div>
+<div class="ttc" id="aclassCommandFactory_html_a13e80399872df8a82dedb050a15399cf"><div class="ttname"><a href="classCommandFactory.html#a13e80399872df8a82dedb050a15399cf">CommandFactory::CommandFactory</a></div><div class="ttdeci">CommandFactory(ProcessorManager &amp;mgr, bool interactive)</div><div class="ttdoc">Конструктор фабрики команд</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:223</div></div>
+<div class="ttc" id="aclassCommandFactory_html_ae99a1a0a9c050fb92d7bf84924aa8a05"><div class="ttname"><a href="classCommandFactory.html#ae99a1a0a9c050fb92d7bf84924aa8a05">CommandFactory::createCommand</a></div><div class="ttdeci">std::unique_ptr&lt; ICommand &gt; createCommand(const std::string &amp;cmd, std::istringstream &amp;iss)</div><div class="ttdoc">Создает команду на основе входных данных</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:231</div></div>
 <div class="ttc" id="aclassConnectCommand_html"><div class="ttname"><a href="classConnectCommand.html">ConnectCommand</a></div><div class="ttdoc">Команда создания нового процессора</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:61</div></div>
 <div class="ttc" id="aclassConnectCommand_html_a4b02ca2572f1f5d4282ae961b916d172"><div class="ttname"><a href="classConnectCommand.html#a4b02ca2572f1f5d4282ae961b916d172">ConnectCommand::execute</a></div><div class="ttdeci">void execute() override</div><div class="ttdoc">Создает новый процессор с указанным размером блока</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:68</div></div>
-<div class="ttc" id="aclassDisconnectCommand_html"><div class="ttname"><a href="classDisconnectCommand.html">DisconnectCommand</a></div><div class="ttdoc">Команда отключения процессора</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:111</div></div>
-<div class="ttc" id="aclassDisconnectCommand_html_a43cc67de69b25f7f52b49caff827c9f3"><div class="ttname"><a href="classDisconnectCommand.html#a43cc67de69b25f7f52b49caff827c9f3">DisconnectCommand::execute</a></div><div class="ttdeci">void execute() override</div><div class="ttdoc">Отключает указанный процессор</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:118</div></div>
-<div class="ttc" id="aclassExitCommand_html"><div class="ttname"><a href="classExitCommand.html">ExitCommand</a></div><div class="ttdoc">Команда выхода из программы</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:177</div></div>
-<div class="ttc" id="aclassExitCommand_html_a9dc6a444c5c4eaa2202b3f378755d70b"><div class="ttname"><a href="classExitCommand.html#a9dc6a444c5c4eaa2202b3f378755d70b">ExitCommand::execute</a></div><div class="ttdeci">void execute() override</div><div class="ttdoc">Инициирует завершение работы программы</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:182</div></div>
-<div class="ttc" id="aclassHelpCommand_html"><div class="ttname"><a href="classHelpCommand.html">HelpCommand</a></div><div class="ttdoc">Команда вывода справки</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:160</div></div>
-<div class="ttc" id="aclassHelpCommand_html_a021a9e33b0e65b75a101c4bbdad96dff"><div class="ttname"><a href="classHelpCommand.html#a021a9e33b0e65b75a101c4bbdad96dff">HelpCommand::HelpCommand</a></div><div class="ttdeci">HelpCommand(bool interactive)</div><div class="ttdoc">Конструктор команды помощи</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:166</div></div>
-<div class="ttc" id="aclassHelpCommand_html_ae937e50237b12328bfbd4526caf7f47e"><div class="ttname"><a href="classHelpCommand.html#ae937e50237b12328bfbd4526caf7f47e">HelpCommand::execute</a></div><div class="ttdeci">void execute() override</div><div class="ttdoc">Выводит справочную информацию</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:169</div></div>
+<div class="ttc" id="aclassDataCommand_html"><div class="ttname"><a href="classDataCommand.html">DataCommand</a></div><div class="ttdoc">Команда для версии V2 - просто поток данных</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:111</div></div>
+<div class="ttc" id="aclassDataCommand_html_a39472ccbf3a99b884aa15e9905e68962"><div class="ttname"><a href="classDataCommand.html#a39472ccbf3a99b884aa15e9905e68962">DataCommand::execute</a></div><div class="ttdeci">void execute() override</div><div class="ttdoc">Отправляет данные первому доступному процессору</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:118</div></div>
+<div class="ttc" id="aclassDisconnectCommand_html"><div class="ttname"><a href="classDisconnectCommand.html">DisconnectCommand</a></div><div class="ttdoc">Команда отключения процессора</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:138</div></div>
+<div class="ttc" id="aclassDisconnectCommand_html_a43cc67de69b25f7f52b49caff827c9f3"><div class="ttname"><a href="classDisconnectCommand.html#a43cc67de69b25f7f52b49caff827c9f3">DisconnectCommand::execute</a></div><div class="ttdeci">void execute() override</div><div class="ttdoc">Отключает указанный процессор</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:145</div></div>
+<div class="ttc" id="aclassExitCommand_html"><div class="ttname"><a href="classExitCommand.html">ExitCommand</a></div><div class="ttdoc">Команда выхода из программы</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:204</div></div>
+<div class="ttc" id="aclassExitCommand_html_a9dc6a444c5c4eaa2202b3f378755d70b"><div class="ttname"><a href="classExitCommand.html#a9dc6a444c5c4eaa2202b3f378755d70b">ExitCommand::execute</a></div><div class="ttdeci">void execute() override</div><div class="ttdoc">Инициирует завершение работы программы</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:209</div></div>
+<div class="ttc" id="aclassHelpCommand_html"><div class="ttname"><a href="classHelpCommand.html">HelpCommand</a></div><div class="ttdoc">Команда вывода справки</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:187</div></div>
+<div class="ttc" id="aclassHelpCommand_html_a021a9e33b0e65b75a101c4bbdad96dff"><div class="ttname"><a href="classHelpCommand.html#a021a9e33b0e65b75a101c4bbdad96dff">HelpCommand::HelpCommand</a></div><div class="ttdeci">HelpCommand(bool interactive)</div><div class="ttdoc">Конструктор команды помощи</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:193</div></div>
+<div class="ttc" id="aclassHelpCommand_html_ae937e50237b12328bfbd4526caf7f47e"><div class="ttname"><a href="classHelpCommand.html#ae937e50237b12328bfbd4526caf7f47e">HelpCommand::execute</a></div><div class="ttdeci">void execute() override</div><div class="ttdoc">Выводит справочную информацию</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:196</div></div>
 <div class="ttc" id="aclassICommand_html"><div class="ttname"><a href="classICommand.html">ICommand</a></div><div class="ttdoc">Базовый интерфейс команды</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:25</div></div>
 <div class="ttc" id="aclassICommand_html_aa8a6346c5a0dcfe7fd49413a69e854ef"><div class="ttname"><a href="classICommand.html#aa8a6346c5a0dcfe7fd49413a69e854ef">ICommand::~ICommand</a></div><div class="ttdeci">virtual ~ICommand()=default</div></div>
 <div class="ttc" id="aclassICommand_html_ace81beb0beea968f876f292446bf1120"><div class="ttname"><a href="classICommand.html#ace81beb0beea968f876f292446bf1120">ICommand::execute</a></div><div class="ttdeci">virtual void execute()=0</div><div class="ttdoc">Выполняет команду</div></div>
-<div class="ttc" id="aclassListCommand_html"><div class="ttname"><a href="classListCommand.html">ListCommand</a></div><div class="ttdoc">Команда вывода списка активных процессоров</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:136</div></div>
-<div class="ttc" id="aclassListCommand_html_a48f471fa9f4cd131f9fdee22e85cf110"><div class="ttname"><a href="classListCommand.html#a48f471fa9f4cd131f9fdee22e85cf110">ListCommand::execute</a></div><div class="ttdeci">void execute() override</div><div class="ttdoc">Выводит список активных процессоров</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:142</div></div>
+<div class="ttc" id="aclassListCommand_html"><div class="ttname"><a href="classListCommand.html">ListCommand</a></div><div class="ttdoc">Команда вывода списка активных процессоров</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:163</div></div>
+<div class="ttc" id="aclassListCommand_html_a48f471fa9f4cd131f9fdee22e85cf110"><div class="ttname"><a href="classListCommand.html#a48f471fa9f4cd131f9fdee22e85cf110">ListCommand::execute</a></div><div class="ttdeci">void execute() override</div><div class="ttdoc">Выводит список активных процессоров</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:169</div></div>
 <div class="ttc" id="aclassProcessorCommand_html"><div class="ttname"><a href="classProcessorCommand.html">ProcessorCommand</a></div><div class="ttdoc">Базовый класс для команд, работающих с процессорами</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:36</div></div>
 <div class="ttc" id="aclassProcessorCommand_html_a228e1ffde84172f52622669b92e1a670"><div class="ttname"><a href="classProcessorCommand.html#a228e1ffde84172f52622669b92e1a670">ProcessorCommand::interactive</a></div><div class="ttdeci">bool interactive</div><div class="ttdoc">Флаг интерактивного режима</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:40</div></div>
 <div class="ttc" id="aclassProcessorCommand_html_a6e64c8f2ac959da2c7f3bfea5fd36755"><div class="ttname"><a href="classProcessorCommand.html#a6e64c8f2ac959da2c7f3bfea5fd36755">ProcessorCommand::logError</a></div><div class="ttdeci">void logError(const std::string_view message) const</div><div class="ttdoc">Логирует ошибку в интерактивном режиме</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:52</div></div>
@@ -387,12 +417,13 @@ $(document).ready(function(){initNavTree('ProcessorCommands_8h_source.html','');
 <div class="ttc" id="aclassProcessorCommand_html_a9e3bd0c58349cf6038fdff98907c9775"><div class="ttname"><a href="classProcessorCommand.html#a9e3bd0c58349cf6038fdff98907c9775">ProcessorCommand::manager</a></div><div class="ttdeci">ProcessorManager &amp; manager</div><div class="ttdoc">Менеджер процессоров</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:38</div></div>
 <div class="ttc" id="aclassProcessorCommand_html_af0085cd0cdc7434837633e327bdfdc8b"><div class="ttname"><a href="classProcessorCommand.html#af0085cd0cdc7434837633e327bdfdc8b">ProcessorCommand::iss</a></div><div class="ttdeci">std::istringstream &amp; iss</div><div class="ttdoc">Поток ввода для чтения аргументов команды</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:39</div></div>
 <div class="ttc" id="aclassProcessorManager_html"><div class="ttname"><a href="classProcessorManager.html">ProcessorManager</a></div><div class="ttdoc">Менеджер для управления процессорами команд</div><div class="ttdef"><b>Definition</b> ProcessorManager.h:14</div></div>
-<div class="ttc" id="aclassProcessorManager_html_a033f32c5ca2800526a6e1d2b7302bedc"><div class="ttname"><a href="classProcessorManager.html#a033f32c5ca2800526a6e1d2b7302bedc">ProcessorManager::empty</a></div><div class="ttdeci">bool empty() const</div><div class="ttdoc">Проверяет отсутствие зарегистрированных процессоров</div><div class="ttdef"><b>Definition</b> ProcessorManager.h:85</div></div>
-<div class="ttc" id="aclassProcessorManager_html_a21274cb9186fc5e3afb947fb2f9144dd"><div class="ttname"><a href="classProcessorManager.html#a21274cb9186fc5e3afb947fb2f9144dd">ProcessorManager::closeRequest</a></div><div class="ttdeci">void closeRequest()</div><div class="ttdoc">Устанавливает флаг запроса на завершение работы</div><div class="ttdef"><b>Definition</b> ProcessorManager.h:94</div></div>
-<div class="ttc" id="aclassProcessorManager_html_a2d5e5c6b07b5099f25767e8e3061029d"><div class="ttname"><a href="classProcessorManager.html#a2d5e5c6b07b5099f25767e8e3061029d">ProcessorManager::isCloseRequested</a></div><div class="ttdeci">bool isCloseRequested() const</div><div class="ttdoc">Проверяет наличие запроса на завершение работы</div><div class="ttdef"><b>Definition</b> ProcessorManager.h:103</div></div>
+<div class="ttc" id="aclassProcessorManager_html_a033f32c5ca2800526a6e1d2b7302bedc"><div class="ttname"><a href="classProcessorManager.html#a033f32c5ca2800526a6e1d2b7302bedc">ProcessorManager::empty</a></div><div class="ttdeci">bool empty() const</div><div class="ttdoc">Проверяет отсутствие зарегистрированных процессоров</div><div class="ttdef"><b>Definition</b> ProcessorManager.h:98</div></div>
+<div class="ttc" id="aclassProcessorManager_html_a21274cb9186fc5e3afb947fb2f9144dd"><div class="ttname"><a href="classProcessorManager.html#a21274cb9186fc5e3afb947fb2f9144dd">ProcessorManager::closeRequest</a></div><div class="ttdeci">void closeRequest()</div><div class="ttdoc">Устанавливает флаг запроса на завершение работы</div><div class="ttdef"><b>Definition</b> ProcessorManager.h:107</div></div>
+<div class="ttc" id="aclassProcessorManager_html_a2d5e5c6b07b5099f25767e8e3061029d"><div class="ttname"><a href="classProcessorManager.html#a2d5e5c6b07b5099f25767e8e3061029d">ProcessorManager::isCloseRequested</a></div><div class="ttdeci">bool isCloseRequested() const</div><div class="ttdoc">Проверяет наличие запроса на завершение работы</div><div class="ttdef"><b>Definition</b> ProcessorManager.h:116</div></div>
+<div class="ttc" id="aclassProcessorManager_html_a56da246c3e4b638b6b7b06ed3b961b26"><div class="ttname"><a href="classProcessorManager.html#a56da246c3e4b638b6b7b06ed3b961b26">ProcessorManager::getFirstProcessor</a></div><div class="ttdeci">async::HANDLE getFirstProcessor() const</div><div class="ttdoc">Получает хэндл первого доступного процессора</div><div class="ttdef"><b>Definition</b> ProcessorManager.h:74</div></div>
 <div class="ttc" id="aclassProcessorManager_html_a905f3ce1bb5bf1a50d4cd5b6d1a8d7ac"><div class="ttname"><a href="classProcessorManager.html#a905f3ce1bb5bf1a50d4cd5b6d1a8d7ac">ProcessorManager::addProcessor</a></div><div class="ttdeci">int addProcessor(async::HANDLE handle)</div><div class="ttdoc">Добавляет новый процессор в менеджер</div><div class="ttdef"><b>Definition</b> ProcessorManager.h:28</div></div>
 <div class="ttc" id="aclassProcessorManager_html_a92866336e564443155d91dfdf0b1d6c0"><div class="ttname"><a href="classProcessorManager.html#a92866336e564443155d91dfdf0b1d6c0">ProcessorManager::removeProcessor</a></div><div class="ttdeci">bool removeProcessor(int id)</div><div class="ttdoc">Удаляет процессор по его ID.</div><div class="ttdef"><b>Definition</b> ProcessorManager.h:41</div></div>
-<div class="ttc" id="aclassProcessorManager_html_abbc561299cbe4e34b9a2b14244735a5d"><div class="ttname"><a href="classProcessorManager.html#abbc561299cbe4e34b9a2b14244735a5d">ProcessorManager::getAllProcessors</a></div><div class="ttdeci">const std::unordered_map&lt; async::HANDLE, int &gt; &amp; getAllProcessors() const</div><div class="ttdoc">Возвращает все зарегистрированные процессоры</div><div class="ttdef"><b>Definition</b> ProcessorManager.h:74</div></div>
+<div class="ttc" id="aclassProcessorManager_html_abbc561299cbe4e34b9a2b14244735a5d"><div class="ttname"><a href="classProcessorManager.html#abbc561299cbe4e34b9a2b14244735a5d">ProcessorManager::getAllProcessors</a></div><div class="ttdeci">const std::unordered_map&lt; async::HANDLE, int &gt; &amp; getAllProcessors() const</div><div class="ttdoc">Возвращает все зарегистрированные процессоры</div><div class="ttdef"><b>Definition</b> ProcessorManager.h:87</div></div>
 <div class="ttc" id="aclassProcessorManager_html_ad474ef46876e402c56a0071ba3cd3745"><div class="ttname"><a href="classProcessorManager.html#ad474ef46876e402c56a0071ba3cd3745">ProcessorManager::getProcessor</a></div><div class="ttdeci">async::HANDLE getProcessor(int id) const</div><div class="ttdoc">Получает хэндл процессора по его ID.</div><div class="ttdef"><b>Definition</b> ProcessorManager.h:59</div></div>
 <div class="ttc" id="aclassReceiveCommand_html"><div class="ttname"><a href="classReceiveCommand.html">ReceiveCommand</a></div><div class="ttdoc">Команда отправки данных процессору</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:81</div></div>
 <div class="ttc" id="aclassReceiveCommand_html_aa6c03ceb8269b6235b70f4867903a202"><div class="ttname"><a href="classReceiveCommand.html#aa6c03ceb8269b6235b70f4867903a202">ReceiveCommand::execute</a></div><div class="ttdeci">void execute() override</div><div class="ttdoc">Отправляет данные указанному процессору</div><div class="ttdef"><b>Definition</b> ProcessorCommands.h:88</div></div>

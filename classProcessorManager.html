@@ -118,6 +118,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad474ef46876e402c56a0071ba3cd3745" id="r_ad474ef46876e402c56a0071ba3cd3745"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceasync.html#a3cfc5985760e4b6b3474a3a06e934d94">async::HANDLE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessorManager.html#ad474ef46876e402c56a0071ba3cd3745">getProcessor</a> (int id) const</td></tr>
 <tr class="memdesc:ad474ef46876e402c56a0071ba3cd3745"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получает хэндл процессора по его ID.  <br /></td></tr>
 <tr class="separator:ad474ef46876e402c56a0071ba3cd3745"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56da246c3e4b638b6b7b06ed3b961b26" id="r_a56da246c3e4b638b6b7b06ed3b961b26"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceasync.html#a3cfc5985760e4b6b3474a3a06e934d94">async::HANDLE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessorManager.html#a56da246c3e4b638b6b7b06ed3b961b26">getFirstProcessor</a> () const</td></tr>
+<tr class="memdesc:a56da246c3e4b638b6b7b06ed3b961b26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получает хэндл первого доступного процессора  <br /></td></tr>
+<tr class="separator:a56da246c3e4b638b6b7b06ed3b961b26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abbc561299cbe4e34b9a2b14244735a5d" id="r_abbc561299cbe4e34b9a2b14244735a5d"><td class="memItemLeft" align="right" valign="top">const std::unordered_map&lt; <a class="el" href="namespaceasync.html#a3cfc5985760e4b6b3474a3a06e934d94">async::HANDLE</a>, int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessorManager.html#abbc561299cbe4e34b9a2b14244735a5d">getAllProcessors</a> () const</td></tr>
 <tr class="memdesc:abbc561299cbe4e34b9a2b14244735a5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает все зарегистрированные процессоры  <br /></td></tr>
 <tr class="separator:abbc561299cbe4e34b9a2b14244735a5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -253,6 +256,35 @@ Public Member Functions</h2></td></tr>
 
 <p>Возвращает все зарегистрированные процессоры </p>
 <dl class="section return"><dt>Returns</dt><dd>Константная ссылка на unordered_map с процессорами </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Потокобезопасный метод </dd></dl>
+
+</div>
+</div>
+<a id="a56da246c3e4b638b6b7b06ed3b961b26" name="a56da246c3e4b638b6b7b06ed3b961b26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56da246c3e4b638b6b7b06ed3b961b26">&#9670;&#160;</a></span>getFirstProcessor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceasync.html#a3cfc5985760e4b6b3474a3a06e934d94">async::HANDLE</a> ProcessorManager::getFirstProcessor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получает хэндл первого доступного процессора </p>
+<dl class="section return"><dt>Returns</dt><dd>Хэндл первого процессора или nullptr если процессоры отсутствуют </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Потокобезопасный метод </dd></dl>
 
 </div>

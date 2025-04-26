@@ -12,6 +12,7 @@ var hierarchy =
       [ "HelpCommand", "classHelpCommand.html", null ],
       [ "ProcessorCommand", "classProcessorCommand.html", [
         [ "ConnectCommand", "classConnectCommand.html", null ],
+        [ "DataCommand", "classDataCommand.html", null ],
         [ "DisconnectCommand", "classDisconnectCommand.html", null ],
         [ "ExitCommand", "classExitCommand.html", null ],
         [ "ListCommand", "classListCommand.html", null ],
