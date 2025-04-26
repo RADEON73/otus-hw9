@@ -2,6 +2,9 @@
 * @file main.cpp
 * @brief Интерактивный клиент для работы с асинхронной обработкой команд
 */
+
+#define V2_DEMO_PROJECT
+
 #include <iostream>
 #include <fstream>
 #include "ProcessorCommands.h"
@@ -41,6 +44,32 @@ void stress_test() {
 }
 
 int main(int argc, char* argv[]) {
+#ifdef V2_DEMO_PROJECT
+	if (argc != 2) {
+		std::cerr << "Usage: async <bulk_size>\n";
+		return RESULT::ARGUMENT_PARSE_ERROR;
+	}
+	ProcessorManager manager;
+	CommandFactory factory(manager, true);
+
+	auto handle = async::connect(atoi(argv[1]));
+	manager.addProcessor(handle);
+
+	std::string line;
+	while (getline(std::cin, line)) {
+		std::istringstream iss(line);
+		std::string cmd;
+		iss >> cmd;
+		if (auto command = factory.createCommand(cmd, iss))
+			command->execute();
+		if (manager.isCloseRequested())
+			break;
+	}
+
+	async::disconnect(handle);
+
+	return RESULT::OK;
+#else
 	std::ifstream input_file;
 	switch (argc) {
 	case 1: // Interactive mode
@@ -59,11 +88,9 @@ int main(int argc, char* argv[]) {
 		return RESULT::ARGUMENT_PARSE_ERROR;
 	}
 	return RESULT::OK;
+#endif
 }
 
 /*
-stat1\nstat2\nstat3\n
-stat4\nstat5\n
-cmd1\ncmd2\n{\ncmd3\ncmd4\n}\n
-{\ncmd5\ncmd6\n{\ncmd7\ncmd8\n}\ncmd9\n}\n{\ncmd10\ncmd11\n
+stat1\nstat2\nstat3\nstat4\nstat5\ncmd1\ncmd2\n{\ncmd3\ncmd4\n}\n{\ncmd5\ncmd6\n{\ncmd7\ncmd8\n}\ncmd9\n}\n{\ncmd10\ncmd11\n
 */

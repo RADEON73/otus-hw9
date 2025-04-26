@@ -67,6 +67,19 @@ public:
 	}
 
 	/**
+	* @brief Получает хэндл первого доступного процессора
+	 * @return Хэндл первого процессора или nullptr если процессоры отсутствуют
+	* @note Потокобезопасный метод
+	 */
+	async::HANDLE getFirstProcessor() const
+	{
+		std::lock_guard lock(mutex_);
+		if (processors.empty())
+			return nullptr;
+		return processors.begin()->first;
+	}
+
+	/**
 	 * @brief Возвращает все зарегистрированные процессоры
 	 * @return Константная ссылка на unordered_map с процессорами
 	 * @note Потокобезопасный метод

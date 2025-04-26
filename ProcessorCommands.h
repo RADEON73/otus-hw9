@@ -106,6 +106,33 @@ public:
 	}
 };
 
+/// @brief Команда для версии V2 - просто поток данных
+class DataCommand : public ProcessorCommand
+{
+public:
+	using ProcessorCommand::ProcessorCommand;
+
+	/// @brief Отправляет данные первому доступному процессору
+	/// @details Формат команды: <DATA>
+	/// где DATA - данные для обработки
+	void execute() override {
+		std::string data = iss.str();
+		size_t pos = 0;
+		async::HANDLE target = manager.getFirstProcessor();
+		if (target && !data.empty()) {
+			while ((pos = data.find("\\n", pos)) != std::string::npos) {
+				data.replace(pos, 2, "\n");
+				pos += 1;
+			}
+			data.erase(0, data.find_first_not_of(" \t"));
+			async::receive(target, data.data(), data.size());
+		}
+		else {
+			logError("Error: no available processors or empty data");
+		}
+	}
+};
+
 /// @brief Команда отключения процессора
 class DisconnectCommand : public ProcessorCommand
 {
@@ -187,7 +214,7 @@ class CommandFactory
 {
 private:
 	ProcessorManager& manager; ///< Менеджер процессоров
-	bool interactive;          ///< Флаг интерактивного режима
+	bool interactive{ true };          ///< Флаг интерактивного режима
 
 public:
 	/// @brief Конструктор фабрики команд
@@ -205,7 +232,9 @@ public:
 		if (cmd.empty() || cmd[0] == '#') {
 			return nullptr; // Пропускаем пустые строки и комментарии
 		}
-
+#ifdef V2_DEMO_PROJECT
+		return std::make_unique<DataCommand>(manager, iss, interactive);
+#else
 		try {
 			if (cmd == "connect") {
 				return std::make_unique<ConnectCommand>(manager, iss, interactive);
@@ -225,10 +254,8 @@ public:
 			else if (cmd == "exit") {
 				return std::make_unique<ExitCommand>(manager, iss, interactive);
 			}
-			else
-				if (interactive) {
-					std::cerr << "Error: unknown command. Type 'help' for available commands.\n";
-				}
+			else if (interactive)
+				std::cerr << "Error: unknown command. Type 'help' for available commands.\n";
 		}
 		catch (const std::exception& e) {
 			if (interactive) {
@@ -236,6 +263,7 @@ public:
 			}
 			return nullptr;
 		}
+#endif
 		return nullptr;
 	}
 };
