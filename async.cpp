@@ -16,18 +16,11 @@ namespace async {
 	}
 
 	void receive(HANDLE handle, const char* data, size_t size) {
-		if (!handle || !data || size == 0) {
-			throw std::invalid_argument("Invalid arguments in receive()");
-		}
-		try {
-			auto processor = static_cast<BulkProcessor*>(handle);
-			std::string input(data, size);
-			processor->parse(input);
-		}
-		catch (const std::exception& e) {
-			std::cerr << "Error in receive(): " << e.what() << std::endl;
-			throw;
-		}
+		if (!handle || !data || size == 0)
+			return;
+		auto processor = static_cast<BulkProcessor*>(handle);
+		std::string input(data, size);
+		processor->parse(input);
 	}
 
 	void disconnect(HANDLE handle) {
