@@ -49,23 +49,19 @@ int main(int argc, char* argv[]) {
 		std::cerr << "Usage: async <bulk_size>\n";
 		return RESULT::ARGUMENT_PARSE_ERROR;
 	}
-	ProcessorManager manager;
-	CommandFactory factory(manager, true);
-
 	auto handle = async::connect(atoi(argv[1]));
-	manager.addProcessor(handle);
-
 	std::string line;
 	while (getline(std::cin, line)) {
-		std::istringstream iss(line);
-		std::string cmd;
-		iss >> cmd;
-		if (auto command = factory.createCommand(cmd, iss))
-			command->execute();
-		if (manager.isCloseRequested())
-			break;
+		size_t pos = 0;
+		if (handle && !line.empty()) {
+			while ((pos = line.find("\\n", pos)) != std::string::npos) {
+				line.replace(pos, 2, "\n");
+				pos += 1;
+			}
+			line.erase(0, line.find_first_not_of(" \t"));
+			async::receive(handle, line.data(), line.size());
+		}
 	}
-
 	async::disconnect(handle);
 
 	return RESULT::OK;
