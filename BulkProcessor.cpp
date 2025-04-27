@@ -39,9 +39,15 @@ void BulkProcessor::addCommand(const std::string& command) {
 		flush();
 }
 
-void BulkProcessor::parse(const std::string_view& input)
+void BulkProcessor::parse(std::string input)
 {
 	size_t start = 0;
+	size_t pos = 0;
+	while ((pos = input.find("\\n", pos)) != std::string::npos) {
+		input.replace(pos, 2, "\n");
+		pos += 1;
+	}
+	input.erase(0, input.find_first_not_of(" \t"));
 	size_t end = input.find('\n');
 	while (end != std::string::npos) {
 		if (std::string command(input.substr(start, end - start)); !command.empty())

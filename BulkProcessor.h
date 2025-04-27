@@ -50,7 +50,7 @@ public:
 	* @brief Обрабатывает входную строку команд.
 	* @param input Входная строка команд.
 	*/
-	void parse(const std::string_view& input);
+	void parse(std::string input);
 
 private:
 	/**

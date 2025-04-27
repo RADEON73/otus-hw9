@@ -52,15 +52,8 @@ int main(int argc, char* argv[]) {
 	auto handle = async::connect(atoi(argv[1]));
 	std::string line;
 	while (getline(std::cin, line)) {
-		size_t pos = 0;
-		if (handle && !line.empty()) {
-			while ((pos = line.find("\\n", pos)) != std::string::npos) {
-				line.replace(pos, 2, "\n");
-				pos += 1;
-			}
-			line.erase(0, line.find_first_not_of(" \t"));
+		if (handle && !line.empty())
 			async::receive(handle, line.data(), line.size());
-		}
 	}
 	async::disconnect(handle);
 
